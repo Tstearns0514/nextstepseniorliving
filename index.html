@@ -4,119 +4,181 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NextStep Senior Living | Peoria, IL</title>
-  <meta name="description" content="NextStep Senior Living provides guidance for families navigating independent living, assisted living, and memory care options in Central Illinois.">
+  <meta name="description" content="NextStep Senior Living helps families understand independent living, assisted living, and memory care options in Central Illinois.">
 
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
-      color: #2c2c2c;
+      color: #263238;
       line-height: 1.6;
-      background: #f9fbfa;
+      background: #f8fbfa;
     }
 
     header {
-      padding: 20px 8%;
+      padding: 22px 8%;
       background: #ffffff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
     }
 
     .logo {
-      font-weight: bold;
-      font-size: 22px;
-      color: #184d47;
+      font-weight: 800;
+      font-size: 24px;
+      color: #1f4d45;
     }
 
     .hero {
       padding: 110px 8%;
       text-align: center;
-      background: linear-gradient(135deg, #e6f2ef, #ffffff);
+      background: linear-gradient(135deg, #e8f3ef, #fbf7ef);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #b7791f;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
     .hero h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-      color: #184d47;
+      font-size: 52px;
+      line-height: 1.1;
+      margin: 0 0 14px;
+      color: #1f4d45;
     }
 
     .hero h2 {
-      font-weight: normal;
-      margin-bottom: 25px;
-      color: #555;
+      font-weight: 500;
+      margin-bottom: 24px;
+      color: #52635f;
     }
 
     .hero p {
-      max-width: 700px;
+      max-width: 730px;
       margin: 0 auto 20px;
       font-size: 19px;
     }
 
     .notice {
       background: #ffffff;
-      border-left: 4px solid #184d47;
-      padding: 18px;
-      border-radius: 8px;
+      border-left: 6px solid #b7791f;
+      padding: 18px 22px;
+      border-radius: 12px;
       display: inline-block;
-      margin-top: 25px;
+      margin-top: 26px;
       font-size: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
 
     section {
-      padding: 70px 8%;
-      max-width: 1100px;
+      padding: 75px 8%;
+      max-width: 1150px;
       margin: auto;
     }
 
     h3 {
-      color: #184d47;
-      font-size: 30px;
-      margin-bottom: 10px;
+      color: #1f4d45;
+      font-size: 34px;
+      margin-bottom: 12px;
     }
 
-    section p {
-      max-width: 700px;
+    .section-intro {
+      color: #536763;
+      font-size: 18px;
+      max-width: 760px;
+    }
+
+    .alt-section {
+      max-width: none;
+      background: #eef6f3;
+      border-top: 1px solid #dbe8e4;
+      border-bottom: 1px solid #dbe8e4;
+    }
+
+    .inner {
+      max-width: 1150px;
+      margin: auto;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
+      gap: 26px;
+      margin-top: 32px;
     }
 
+    /* UPDATED MODERN CARDS (NO HIDDEN TEXT) */
     .card {
       background: #ffffff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.06);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
+      padding: 26px;
+      border-radius: 16px;
+      border-left: 6px solid #9ca3a7;
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: all 0.25s ease;
     }
 
-    .card strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 18px;
-      color: #184d47;
+    .card:hover,
+    .card:active {
+      background: #f1f4f3;
+      border-left-color: #6b7280;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 35px rgba(0,0,0,0.12);
     }
 
-    .alt-section {
-      background: #eef5f3;
-      border-top: 1px solid #e0e0e0;
-      border-bottom: 1px solid #e0e0e0;
+    .card-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: #1f4d45;
+      margin-bottom: 10px;
+    }
+
+    .card-info {
+      color: #52635f;
+    }
+
+    .closing {
+      background: #1f4d45;
+      color: white;
+      text-align: center;
+      max-width: none;
+    }
+
+    .closing h3 {
+      color: white;
+    }
+
+    .closing p {
+      margin: auto;
+      color: #e8f3ef;
+      max-width: 760px;
     }
 
     footer {
       text-align: center;
       padding: 30px;
       font-size: 14px;
-      color: #777;
+      color: #667;
       background: #ffffff;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero {
+        padding: 85px 7%;
+      }
+
+      section {
+        padding: 58px 7%;
+      }
     }
   </style>
 </head>
@@ -128,6 +190,8 @@
 </header>
 
 <div class="hero">
+  <div class="eyebrow">Coming Soon</div>
+
   <h1>Your Trusted Guide to the Right Senior Living Choice</h1>
   <h2>Serving Peoria & Central Illinois</h2>
 
@@ -142,68 +206,96 @@
 
 <section>
   <h3>Senior Living Guidance for Families</h3>
-  <p>
+  <p class="section-intro">
     Choosing senior living can feel overwhelming. Our goal is to provide families with clarity, support, and trusted local insight when navigating independent living, assisted living, and memory care options.
   </p>
 </section>
 
 <section class="alt-section">
-  <h3>Planned Services</h3>
-  <div class="grid">
-    <div class="card">
-      <strong>Independent Living Options</strong>
-      <p>Explore maintenance-free living that supports independence, connection, and lifestyle.</p>
-    </div>
+  <div class="inner">
+    <h3>Planned Services</h3>
 
-    <div class="card">
-      <strong>Assisted Living Guidance</strong>
-      <p>Understand care needs and find the right balance of support and independence.</p>
-    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-title">Independent Living</div>
+        <div class="card-info">
+          Explore maintenance-free living that supports independence, connection, and lifestyle.
+        </div>
+      </div>
 
-    <div class="card">
-      <strong>Memory Care Guidance</strong>
-      <p>Navigate dementia and Alzheimer’s care with clarity and confidence.</p>
+      <div class="card">
+        <div class="card-title">Assisted Living</div>
+        <div class="card-info">
+          Understand care needs and find the right balance of support and independence.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Memory Care</div>
+        <div class="card-info">
+          Navigate dementia and Alzheimer’s care with clarity, confidence, and compassion.
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section>
   <h3>Additional Support & Resources</h3>
-  <p>
-    We believe families deserve support beyond just choosing a community. Our goal is to connect you with trusted professionals who can support every step of the transition.
+  <p class="section-intro">
+    Families deserve support beyond just choosing a community. Our goal is to connect families with trusted professionals who can support every step of the transition.
   </p>
 
   <div class="grid">
     <div class="card">
-      <strong>Realtor Connections</strong>
-      <p>Help with selling or transitioning from a home.</p>
+      <div class="card-title">Realtor Connections</div>
+      <div class="card-info">
+        Help with selling a home or transitioning to a new living arrangement.
+      </div>
     </div>
 
     <div class="card">
-      <strong>Elder Care Attorneys</strong>
-      <p>Legal planning and long-term care guidance.</p>
+      <div class="card-title">Elder Care Attorneys</div>
+      <div class="card-info">
+        Legal planning, estate matters, and long-term care guidance.
+      </div>
     </div>
 
     <div class="card">
-      <strong>Senior Moving Services</strong>
-      <p>Downsizing, packing, and transition support.</p>
+      <div class="card-title">Senior Moving Services</div>
+      <div class="card-info">
+        Downsizing, packing, organizing, and transition support.
+      </div>
     </div>
 
     <div class="card">
-      <strong>Case Management</strong>
-      <p>Coordination of care needs and services.</p>
+      <div class="card-title">Case Management</div>
+      <div class="card-info">
+        Coordination of care needs, services, and ongoing support planning.
+      </div>
     </div>
 
     <div class="card">
-      <strong>Financial Guidance</strong>
-      <p>Explore benefits, funding, and payment options.</p>
+      <div class="card-title">Financial Guidance</div>
+      <div class="card-info">
+        Explore benefits, funding options, and available financial resources.
+      </div>
     </div>
 
     <div class="card">
-      <strong>And More</strong>
-      <p>Expanding trusted local resources over time.</p>
+      <div class="card-title">And More</div>
+      <div class="card-info">
+        Additional trusted local resources will be added as our network grows.
+      </div>
     </div>
   </div>
+</section>
+
+<section class="closing">
+  <h3>Preparing to Serve Central Illinois</h3>
+  <p>
+    NextStep Senior Living is building a local network of trusted senior living and transition resources for families in Peoria and the surrounding area.
+  </p>
 </section>
 
 <footer>
