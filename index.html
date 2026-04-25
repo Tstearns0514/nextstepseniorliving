@@ -113,7 +113,6 @@
       margin-top: 32px;
     }
 
-    /* UPDATED MODERN CARDS (NO HIDDEN TEXT) */
     .card {
       background: #ffffff;
       padding: 26px;
@@ -121,14 +120,22 @@
       border-left: 6px solid #9ca3a7;
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
       transition: all 0.25s ease;
+      cursor: pointer;
+      user-select: none;
     }
 
-    .card:hover,
-    .card:active {
+    .card:hover {
       background: #f1f4f3;
       border-left-color: #6b7280;
       transform: translateY(-4px);
       box-shadow: 0 16px 35px rgba(0,0,0,0.12);
+    }
+
+    .card.active {
+      background: #e7ecea;
+      border-left-color: #1f4d45;
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.14);
     }
 
     .card-title {
@@ -140,6 +147,16 @@
 
     .card-info {
       color: #52635f;
+    }
+
+    .card.active .card-info {
+      color: #2f3d40;
+    }
+
+    .tap-note {
+      font-size: 14px;
+      color: #7a8487;
+      margin-top: 8px;
     }
 
     .closing {
@@ -214,6 +231,7 @@
 <section class="alt-section">
   <div class="inner">
     <h3>Planned Services</h3>
+   
 
     <div class="grid">
       <div class="card">
@@ -301,6 +319,21 @@
 <footer>
   © 2026 NextStep Senior Living
 </footer>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      if (card.classList.contains('active')) {
+        card.classList.remove('active');
+      } else {
+        cards.forEach(otherCard => otherCard.classList.remove('active'));
+        card.classList.add('active');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
