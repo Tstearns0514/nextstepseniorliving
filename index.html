@@ -16,21 +16,16 @@
       --green: #1f4d45;
       --green-dark: #173c36;
       --green-light: #eaf3f0;
-
       --gold: #b7791f;
       --gold-dark: #936016;
       --gold-light: #f8f0e4;
-
       --cream: #fbfaf7;
       --white: #ffffff;
-
       --text: #263238;
       --text-soft: #5d6b68;
       --border: #dce5e2;
-
       --shadow: 0 12px 32px rgba(21, 58, 52, 0.09);
       --shadow-hover: 0 18px 42px rgba(21, 58, 52, 0.15);
-
       --radius: 18px;
       --max-width: 1180px;
     }
@@ -60,9 +55,7 @@
       max-width: 100%;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
+    /* HEADER */
 
     header {
       background: rgba(255, 255, 255, 0.97);
@@ -75,9 +68,8 @@
     .nav {
       max-width: var(--max-width);
       margin: auto;
-      min-height: 78px;
-      padding: 0 28px;
-
+      min-height: 96px;
+      padding: 7px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -87,15 +79,13 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 13px;
+      gap: 16px;
       min-width: max-content;
     }
 
-    /* ACTUAL NS LOGO */
-
     .brand-logo {
-      width: 52px;
-      height: 52px;
+      width: auto;
+      height: 80px;
       object-fit: contain;
       display: block;
       flex-shrink: 0;
@@ -108,7 +98,7 @@
     .brand-name {
       color: var(--green);
       font-weight: 800;
-      font-size: 20px;
+      font-size: 21px;
     }
 
     .brand-sub {
@@ -116,13 +106,13 @@
       font-size: 11px;
       letter-spacing: 0.7px;
       text-transform: uppercase;
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 25px;
       color: #40514d;
       font-weight: 600;
       font-size: 15px;
@@ -145,9 +135,16 @@
       transform: translateY(-1px);
     }
 
-    /* =========================
-       HERO
-    ========================= */
+    .menu-button {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--green);
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    /* HERO */
 
     .hero {
       background:
@@ -169,7 +166,6 @@
     .hero-inner {
       max-width: var(--max-width);
       margin: auto;
-
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 70px;
@@ -180,18 +176,14 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-
       padding: 7px 13px;
       border-radius: 999px;
-
       background: var(--gold-light);
       color: var(--gold-dark);
-
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.7px;
       text-transform: uppercase;
-
       margin-bottom: 20px;
     }
 
@@ -231,10 +223,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-
       padding: 14px 21px;
       border-radius: 11px;
-
       font-weight: 750;
       transition: 0.2s ease;
       cursor: pointer;
@@ -277,9 +267,7 @@
       color: var(--green);
     }
 
-    /* =========================
-       HERO INFORMATION CARD
-    ========================= */
+    /* HERO CARD */
 
     .hero-card {
       background: white;
@@ -319,7 +307,6 @@
       display: flex;
       gap: 12px;
       align-items: flex-start;
-
       padding-top: 13px;
       border-top: 1px solid #edf1ef;
     }
@@ -328,15 +315,12 @@
       flex: 0 0 26px;
       width: 26px;
       height: 26px;
-
       border-radius: 50%;
       background: var(--green-light);
       color: var(--green);
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       font-weight: 900;
       font-size: 13px;
     }
@@ -352,9 +336,7 @@
       font-size: 14px;
     }
 
-    /* =========================
-       GENERAL SECTIONS
-    ========================= */
+    /* GENERAL */
 
     section {
       padding: 90px 28px;
@@ -389,9 +371,7 @@
       margin: 0;
     }
 
-    /* =========================
-       TWO PATHWAYS
-    ========================= */
+    /* PATHWAYS */
 
     .pathways {
       padding-top: 75px;
@@ -410,7 +390,6 @@
       background: white;
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
-
       transition: 0.2s ease;
     }
 
@@ -423,14 +402,11 @@
       width: 54px;
       height: 54px;
       border-radius: 14px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       background: var(--green-light);
       color: var(--green);
-
       font-size: 25px;
       font-weight: 700;
       margin-bottom: 20px;
@@ -461,9 +437,7 @@
       color: var(--gold);
     }
 
-    /* =========================
-       PROCESS
-    ========================= */
+    /* PROCESS */
 
     .process-section {
       background: var(--green);
@@ -514,9 +488,7 @@
       margin: 0;
     }
 
-    /* =========================
-       CARE TYPES
-    ========================= */
+    /* CARE OPTIONS */
 
     .care-grid {
       display: grid;
@@ -558,9 +530,7 @@
       margin: 0 0 20px;
     }
 
-    /* =========================
-       WHY NEXTSTEP
-    ========================= */
+    /* WHY NEXTSTEP */
 
     .why-section {
       background: #edf5f2;
@@ -600,9 +570,7 @@
       margin: 0;
     }
 
-    /* =========================
-       ABOUT TYLER
-    ========================= */
+    /* ABOUT */
 
     .about-grid {
       display: grid;
@@ -614,22 +582,18 @@
     .about-photo {
       min-height: 440px;
       border-radius: 24px;
-
       background:
         linear-gradient(
           135deg,
           rgba(31, 77, 69, 0.95),
           rgba(31, 77, 69, 0.72)
         );
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       color: white;
       text-align: center;
       padding: 40px;
-
       box-shadow: var(--shadow);
     }
 
@@ -657,17 +621,13 @@
     .about-highlight {
       background: var(--gold-light);
       border-left: 4px solid var(--gold);
-
       padding: 17px 20px;
       border-radius: 0 11px 11px 0;
-
       color: #634b27;
       margin: 24px 0;
     }
 
-    /* =========================
-       RESOURCES
-    ========================= */
+    /* RESOURCES */
 
     .resources-section {
       background: white;
@@ -701,9 +661,7 @@
       line-height: 1.3;
     }
 
-    /* =========================
-       FINAL CTA
-    ========================= */
+    /* CTA */
 
     .cta-section {
       padding: 90px 28px;
@@ -712,7 +670,6 @@
     .cta {
       max-width: var(--max-width);
       margin: auto;
-
       background:
         radial-gradient(
           circle at 90% 20%,
@@ -720,10 +677,8 @@
           transparent 30%
         ),
         var(--green);
-
       border-radius: 26px;
       padding: 65px;
-
       text-align: center;
       color: white;
     }
@@ -763,9 +718,7 @@
       font-size: 13px;
     }
 
-    /* =========================
-       CONTACT
-    ========================= */
+    /* CONTACT */
 
     .contact-strip {
       padding: 42px 28px;
@@ -776,7 +729,6 @@
     .contact-inner {
       max-width: var(--max-width);
       margin: auto;
-
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -801,9 +753,7 @@
       color: var(--gold);
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     footer {
       background: #173c36;
@@ -814,7 +764,6 @@
     .footer-inner {
       max-width: var(--max-width);
       margin: auto;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -830,22 +779,7 @@
       font-size: 13px;
     }
 
-    /* =========================
-       MOBILE NAVIGATION
-    ========================= */
-
-    .menu-button {
-      display: none;
-      border: none;
-      background: transparent;
-      color: var(--green);
-      font-size: 25px;
-      cursor: pointer;
-    }
-
-    /* =========================
-       RESPONSIVE DESIGN
-    ========================= */
+    /* RESPONSIVE */
 
     @media (max-width: 950px) {
 
@@ -873,20 +807,16 @@
 
       .nav-links {
         position: absolute;
-        top: 78px;
+        top: 96px;
         left: 0;
         right: 0;
-
         background: white;
         border-bottom: 1px solid var(--border);
         box-shadow: var(--shadow);
-
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-
         padding: 12px 28px 22px;
-
         display: none;
       }
 
@@ -915,12 +845,17 @@
       }
 
       .nav {
-        padding: 0 20px;
+        min-height: 82px;
+        padding: 5px 20px;
       }
 
       .brand-logo {
-        width: 45px;
-        height: 45px;
+        width: auto;
+        height: 65px;
+      }
+
+      .brand-name {
+        font-size: 18px;
       }
 
       .hero {
@@ -979,6 +914,10 @@
         text-align: center;
         gap: 18px;
       }
+
+      .nav-links {
+        top: 82px;
+      }
     }
 
     @media (max-width: 440px) {
@@ -991,34 +930,33 @@
         display: none;
       }
 
+      .brand-logo {
+        height: 58px;
+      }
+
       .brand-name {
-        font-size: 18px;
+        font-size: 17px;
       }
     }
   </style>
 </head>
 
-
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- HEADER -->
 
   <header>
-
     <nav class="nav">
 
       <a href="#home" class="brand">
 
         <img
-          src="ns-logo.PNG"
+          src="./ns-logo.PNG"
           alt="NextStep Senior Living"
           class="brand-logo"
         />
 
         <div class="brand-text">
-
           <div class="brand-name">
             NextStep Senior Living
           </div>
@@ -1026,11 +964,9 @@
           <div class="brand-sub">
             Peoria • Central Illinois
           </div>
-
         </div>
 
       </a>
-
 
       <button
         class="menu-button"
@@ -1040,28 +976,13 @@
         ☰
       </button>
 
-
       <div class="nav-links" id="navLinks">
 
-        <a href="#families">
-          For Families
-        </a>
-
-        <a href="#professionals">
-          Professionals
-        </a>
-
-        <a href="#care">
-          Living Options
-        </a>
-
-        <a href="#about">
-          About
-        </a>
-
-        <a href="#resources">
-          Resources
-        </a>
+        <a href="#families">For Families</a>
+        <a href="#professionals">Professionals</a>
+        <a href="#care">Living Options</a>
+        <a href="#about">About</a>
+        <a href="#resources">Resources</a>
 
         <a href="#contact" class="nav-button">
           Contact
@@ -1070,16 +991,10 @@
       </div>
 
     </nav>
-
   </header>
 
 
-  <!-- =========================
-       MAIN CONTENT
-  ========================== -->
-
   <main id="home">
-
 
     <!-- HERO -->
 
@@ -1087,29 +1002,22 @@
 
       <div class="hero-inner">
 
-
         <div>
 
           <div class="eyebrow">
-
             <span class="eyebrow-dot"></span>
-
             Coming Soon to Central Illinois
-
           </div>
-
 
           <h1>
             Your Trusted Guide to the Right Senior Living Choice
           </h1>
-
 
           <p class="hero-lead">
             Personalized local guidance for families exploring independent
             living, assisted living, and memory care throughout Peoria and
             Central Illinois.
           </p>
-
 
           <div class="hero-actions">
 
@@ -1123,28 +1031,23 @@
 
           </div>
 
-
           <div class="coming-note">
 
             <span>●</span>
 
             <div>
-
               <strong>
                 We're building our local network now.
               </strong>
 
               NextStep is preparing to serve families and healthcare
               professionals throughout Central Illinois.
-
             </div>
 
           </div>
 
         </div>
 
-
-        <!-- HERO RIGHT CARD -->
 
         <div class="hero-card">
 
@@ -1162,74 +1065,51 @@
             process easier to understand.
           </p>
 
-
           <div class="check-list">
-
 
             <div class="check-item">
 
-              <div class="check">
-                ✓
-              </div>
+              <div class="check">✓</div>
 
               <div>
-
-                <strong>
-                  Understand your options
-                </strong>
+                <strong>Understand your options</strong>
 
                 <span>
                   Learn which type of senior living may fit your needs.
                 </span>
-
               </div>
 
             </div>
 
-
             <div class="check-item">
 
-              <div class="check">
-                ✓
-              </div>
+              <div class="check">✓</div>
 
               <div>
-
-                <strong>
-                  Narrow the search
-                </strong>
+                <strong>Narrow the search</strong>
 
                 <span>
                   Focus on communities that match care needs, preferences,
                   location, and budget.
                 </span>
-
               </div>
 
             </div>
 
-
             <div class="check-item">
 
-              <div class="check">
-                ✓
-              </div>
+              <div class="check">✓</div>
 
               <div>
-
-                <strong>
-                  Take the next step
-                </strong>
+                <strong>Take the next step</strong>
 
                 <span>
                   Connect with communities and resources that can help with
                   the transition.
                 </span>
-
               </div>
 
             </div>
-
 
           </div>
 
@@ -1240,9 +1120,7 @@
     </section>
 
 
-    <!-- =========================
-         WHO WE HELP
-    ========================== -->
+    <!-- WHO WE HELP -->
 
     <section class="pathways">
 
@@ -1257,16 +1135,12 @@
         </h2>
 
         <p class="section-intro">
-          Whether you're looking for senior living for someone you love or
-          helping a patient navigate their next level of care, NextStep is
-          being built to make the process easier.
+          Whether you're looking for senior living for yourself or someone
+          you love, or you're helping a patient navigate their next level of
+          care, NextStep is being built to make the process easier.
         </p>
 
-
         <div class="pathway-grid">
-
-
-          <!-- FAMILY -->
 
           <article class="pathway" id="families">
 
@@ -1290,8 +1164,6 @@
 
           </article>
 
-
-          <!-- PROFESSIONAL -->
 
           <article
             class="pathway pathway-professional"
@@ -1318,7 +1190,6 @@
 
           </article>
 
-
         </div>
 
       </div>
@@ -1326,9 +1197,7 @@
     </section>
 
 
-    <!-- =========================
-         PROCESS
-    ========================== -->
+    <!-- PROCESS -->
 
     <section class="process-section" id="process">
 
@@ -1347,9 +1216,7 @@
           It starts with understanding what your family actually needs.
         </p>
 
-
         <div class="steps">
-
 
           <article class="step">
 
@@ -1404,7 +1271,6 @@
 
           </article>
 
-
         </div>
 
       </div>
@@ -1412,9 +1278,7 @@
     </section>
 
 
-    <!-- =========================
-         SENIOR LIVING OPTIONS
-    ========================== -->
+    <!-- SENIOR LIVING OPTIONS -->
 
     <section id="care">
 
@@ -1434,9 +1298,7 @@
           decision.
         </p>
 
-
         <div class="care-grid">
-
 
           <article class="care-card">
 
@@ -1503,7 +1365,6 @@
 
           </article>
 
-
         </div>
 
       </div>
@@ -1511,9 +1372,7 @@
     </section>
 
 
-    <!-- =========================
-         WHY NEXTSTEP
-    ========================== -->
+    <!-- WHY NEXTSTEP -->
 
     <section class="why-section">
 
@@ -1533,9 +1392,7 @@
           families understand the choices in front of them.
         </p>
 
-
         <div class="why-grid">
-
 
           <article class="why-item">
 
@@ -1604,7 +1461,6 @@
 
           </article>
 
-
         </div>
 
       </div>
@@ -1612,18 +1468,13 @@
     </section>
 
 
-    <!-- =========================
-         ABOUT
-    ========================== -->
+    <!-- ABOUT -->
 
     <section id="about">
 
       <div class="container">
 
         <div class="about-grid">
-
-
-          <!-- PHOTO PLACEHOLDER -->
 
           <div class="about-photo">
 
@@ -1645,8 +1496,6 @@
 
           </div>
 
-
-          <!-- ABOUT TEXT -->
 
           <div class="about-copy">
 
@@ -1688,7 +1537,6 @@
 
           </div>
 
-
         </div>
 
       </div>
@@ -1696,9 +1544,7 @@
     </section>
 
 
-    <!-- =========================
-         ADDITIONAL RESOURCES
-    ========================== -->
+    <!-- RESOURCES -->
 
     <section class="resources-section" id="resources">
 
@@ -1718,87 +1564,37 @@
           is building a network of trusted local resources that can help.
         </p>
 
-
         <div class="resource-grid">
 
-
           <div class="resource">
-
-            <div class="resource-icon">
-              ⌂
-            </div>
-
-            <strong>
-              Realtors
-            </strong>
-
+            <div class="resource-icon">⌂</div>
+            <strong>Realtors</strong>
           </div>
 
-
           <div class="resource">
-
-            <div class="resource-icon">
-              ⚖
-            </div>
-
-            <strong>
-              Elder Law
-            </strong>
-
+            <div class="resource-icon">⚖</div>
+            <strong>Elder Law</strong>
           </div>
 
-
           <div class="resource">
-
-            <div class="resource-icon">
-              ▣
-            </div>
-
-            <strong>
-              Senior Movers
-            </strong>
-
+            <div class="resource-icon">▣</div>
+            <strong>Senior Movers</strong>
           </div>
 
-
           <div class="resource">
-
-            <div class="resource-icon">
-              ↔
-            </div>
-
-            <strong>
-              Downsizing
-            </strong>
-
+            <div class="resource-icon">↔</div>
+            <strong>Downsizing</strong>
           </div>
 
-
           <div class="resource">
-
-            <div class="resource-icon">
-              $
-            </div>
-
-            <strong>
-              Financial Resources
-            </strong>
-
+            <div class="resource-icon">$</div>
+            <strong>Financial Resources</strong>
           </div>
 
-
           <div class="resource">
-
-            <div class="resource-icon">
-              +
-            </div>
-
-            <strong>
-              Care Coordination
-            </strong>
-
+            <div class="resource-icon">+</div>
+            <strong>Care Coordination</strong>
           </div>
-
 
         </div>
 
@@ -1807,9 +1603,7 @@
     </section>
 
 
-    <!-- =========================
-         FINAL CALL TO ACTION
-    ========================== -->
+    <!-- FINAL CTA -->
 
     <div class="cta-section">
 
@@ -1844,14 +1638,11 @@
     </div>
 
 
-    <!-- =========================
-         CONTACT INFORMATION
-    ========================== -->
+    <!-- CONTACT -->
 
     <div class="contact-strip" id="contact">
 
       <div class="contact-inner">
-
 
         <div class="contact-item">
 
@@ -1889,18 +1680,14 @@
 
         </div>
 
-
       </div>
 
     </div>
 
-
   </main>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -1919,40 +1706,24 @@
   </footer>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
+  <!-- JAVASCRIPT -->
 
   <script>
-
-    const menuButton =
-      document.getElementById("menuButton");
-
-    const navLinks =
-      document.getElementById("navLinks");
-
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
 
     menuButton.addEventListener("click", function () {
-
       navLinks.classList.toggle("active");
-
     });
-
 
     document
       .querySelectorAll(".nav-links a")
       .forEach(function (link) {
-
         link.addEventListener("click", function () {
-
           navLinks.classList.remove("active");
-
         });
-
       });
-
   </script>
-
 
 </body>
 </html>
