@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assisted Living | NextStep Senior Living</title>
+  <meta name="description" content="A residential setting that combines housing, daily-life support, meals, activities, and access to staff while helping residents maintain as much independence as possible.">
+  <meta name="theme-color" content="#081B2E">
+  <link rel="icon" href="./ns-logo.PNG">
+  <style>
+
+:root{
+  --navy:#081B2E;
+  --navy-dark:#061522;
+  --navy-mid:#0E304B;
+  --navy-light:#174B70;
+  --teal:#1FA6A8;
+  --teal-dark:#167E80;
+  --teal-light:#65D8D3;
+  --teal-pale:#E8F7F7;
+  --bg:#F3F8F9;
+  --white:#FFFFFF;
+  --text:#1D2B35;
+  --soft:#647580;
+  --border:rgba(14,48,75,.12);
+  --shadow:0 14px 36px rgba(8,27,46,.09);
+  --shadow-lg:0 22px 58px rgba(8,27,46,.16);
+  --radius:18px;
+  --max:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:102px}
+body{
+  margin:0;
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  color:var(--text);
+  line-height:1.6;
+  background:var(--bg);
+}
+body.menu-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid rgba(31,166,168,.38);outline-offset:3px;border-radius:8px}
+.shell{width:min(calc(100% - 40px),var(--max));margin:auto}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--teal-light);font-size:12px;font-weight:900;
+  letter-spacing:.85px;text-transform:uppercase;
+}
+.eyebrow.dark{color:var(--teal-dark)}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+h1,h2,h3{line-height:1.12;letter-spacing:-.8px}
+h1{font-size:clamp(42px,6vw,68px);margin:14px 0 20px}
+h2{font-size:clamp(32px,4vw,46px);margin:0 0 14px}
+h3{font-size:22px;margin:0 0 10px}
+.lead{font-size:19px;color:#D2E1E5;max-width:720px;margin:0}
+.section-lead{font-size:17px;color:var(--soft);max-width:760px;margin:0}
+.section-head{margin-bottom:34px}
+.section-head.center{text-align:center}
+.section-head.center .section-lead{margin-inline:auto}
+
+/* HEADER */
+.site-header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+.nav{
+  width:min(calc(100% - 36px),var(--max));margin:auto;
+  min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand{display:flex;align-items:center;gap:13px;min-width:max-content}
+.brand-logo{height:68px;width:auto;object-fit:contain}
+.brand-name{font-size:20px;font-weight:900;color:var(--navy);line-height:1.1}
+.brand-sub{font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--soft);margin-top:4px}
+.nav-main{display:flex;align-items:center;gap:10px}
+.nav-main>a,.nav-dropdown>summary{
+  list-style:none;border-radius:9px;padding:9px 10px;color:#40535D;
+  font-size:14px;font-weight:750;transition:.18s ease;cursor:pointer;
+}
+.nav-dropdown>summary::-webkit-details-marker{display:none}
+.nav-main>a:hover,.nav-dropdown>summary:hover,.nav-main>a.active{
+  background:var(--teal-pale);color:var(--teal-dark)
+}
+.nav-connect{
+  background:linear-gradient(135deg,var(--navy),var(--navy-light))!important;
+  color:white!important;padding:10px 16px!important;
+  box-shadow:0 9px 22px rgba(8,27,46,.16)
+}
+.nav-connect:hover{filter:brightness(1.08)}
+.nav-dropdown{position:relative}
+.dropdown-menu{
+  position:absolute;top:calc(100% + 9px);left:0;min-width:235px;
+  padding:8px;background:white;border:1px solid var(--border);border-radius:13px;
+  box-shadow:var(--shadow-lg);display:grid;gap:3px;z-index:1002
+}
+.nav-dropdown:not([open]) .dropdown-menu{display:none}
+.dropdown-menu a{padding:10px 11px;border-radius:8px;font-size:13px;font-weight:700;color:#4D606A}
+.dropdown-menu a:hover{background:var(--teal-pale);color:var(--teal-dark)}
+.menu-toggle{
+  display:none;width:44px;height:44px;border:1px solid var(--border);
+  background:white;border-radius:11px;color:var(--navy);font-size:23px
+}
+
+/* BUTTONS / INTERACTIONS */
+.btn{
+  position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 19px;border-radius:11px;border:1px solid transparent;
+  font-weight:850;transition:.18s ease;-webkit-tap-highlight-color:transparent
+}
+.btn::after,.clickable::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.24) 47%,transparent 67%);
+  transform:translateX(-135%);transition:transform .48s ease
+}
+.btn-primary{
+  color:white;background:linear-gradient(135deg,var(--navy),var(--navy-light));
+  box-shadow:0 11px 25px rgba(8,27,46,.2)
+}
+.btn-teal{
+  color:white;background:linear-gradient(135deg,#137B7D,#22B2B4);
+  box-shadow:0 11px 25px rgba(31,166,168,.2)
+}
+.btn-light{color:var(--navy);background:white;border-color:rgba(255,255,255,.7)}
+.btn-outline{color:var(--navy);background:transparent;border-color:#AFC7CE}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn:hover::after,.clickable:hover::after{transform:translateX(135%)}
+.btn:active,.btn.is-pressed,.clickable:active,.clickable.is-pressed{transform:scale(.98);filter:brightness(1.06)}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* HEROES */
+.hero{
+  color:white;
+  background:
+    radial-gradient(circle at 88% 10%,rgba(101,216,211,.15),transparent 29%),
+    radial-gradient(circle at 10% 90%,rgba(74,130,175,.12),transparent 28%),
+    linear-gradient(145deg,var(--navy-dark),var(--navy) 58%,var(--navy-mid));
+  padding:82px 0;
+}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:58px;align-items:center}
+.hero .actions{margin-top:28px}
+.trust-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.trust{
+  padding:7px 10px;border:1px solid rgba(101,216,211,.17);
+  border-radius:999px;background:rgba(255,255,255,.06);color:#D5E5E8;
+  font-size:11px;font-weight:800
+}
+.hero-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.06));
+  border:1px solid rgba(101,216,211,.18);border-radius:23px;padding:30px;
+  box-shadow:0 24px 60px rgba(0,0,0,.17)
+}
+.hero-card h2{font-size:28px;color:white}
+.hero-card p{color:#CADCE0}
+.hero-list{display:grid;gap:12px;margin-top:20px}
+.hero-list>div{display:flex;gap:10px;padding-top:12px;border-top:1px solid rgba(255,255,255,.09)}
+.check{
+  width:25px;height:25px;border-radius:50%;flex:0 0 25px;
+  background:rgba(101,216,211,.13);color:var(--teal-light);
+  display:flex;align-items:center;justify-content:center;font-weight:900
+}
+.hero-list strong{display:block;color:white;font-size:14px}
+.hero-list span{display:block;color:#BFD1D6;font-size:12px}
+
+/* STANDARD SECTIONS */
+.section{padding:82px 0}
+.section-light{background:linear-gradient(180deg,#F8FBFC,#EEF5F7)}
+.section-white{background:white}
+.section-tint{
+  background:
+    radial-gradient(circle at 92% 10%,rgba(31,166,168,.09),transparent 28%),
+    linear-gradient(145deg,#E9F4F6,#DDECF0)
+}
+.section-dark{
+  color:white;
+  background:radial-gradient(circle at 88% 10%,rgba(31,166,168,.13),transparent 28%),
+  linear-gradient(145deg,var(--navy-dark),var(--navy-mid))
+}
+.section-dark .section-lead{color:#C6D8DD}
+.section-dark h2,.section-dark h3{color:white}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{
+  position:relative;overflow:hidden;
+  background:linear-gradient(145deg,#fff,#F7FBFC);
+  border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)
+}
+.card.clickable{transition:.18s ease}
+.card.clickable:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(31,166,168,.3)}
+.card-number{color:var(--teal);font-size:12px;font-weight:900;letter-spacing:.7px;margin-bottom:12px}
+.card h3{color:var(--navy)}
+.card p{color:var(--soft);margin:0 0 16px}
+.more{color:var(--teal-dark);font-weight:900;font-size:13px}
+.icon-box{
+  width:50px;height:50px;border-radius:14px;background:var(--teal-pale);color:var(--teal-dark);
+  display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:900;margin-bottom:18px
+}
+
+/* PROCESS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}
+.step{
+  border:1px solid rgba(101,216,211,.15);background:rgba(255,255,255,.065);
+  border-radius:16px;padding:28px
+}
+.step-num{color:var(--teal-light);font-size:34px;font-weight:900;margin-bottom:15px}
+.step p{color:#C6D8DD;margin:0}
+
+/* FEATURE SPLIT */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+.feature-panel{
+  background:linear-gradient(145deg,var(--navy),var(--navy-mid));color:white;
+  padding:36px;border-radius:22px;box-shadow:var(--shadow-lg)
+}
+.feature-panel p{color:#C9DBDF}
+.feature-list{display:grid;gap:12px;margin-top:22px}
+.feature-list div{display:flex;gap:10px;color:#D8E5E8;font-size:14px}
+.feature-list b{color:var(--teal-light)}
+
+/* CONTENT / EDUCATION */
+.bullet-list{display:grid;gap:11px;margin:22px 0 0;padding:0;list-style:none}
+.bullet-list li{display:flex;gap:10px;color:var(--soft)}
+.bullet-list li::before{content:"✓";color:var(--teal);font-weight:900}
+.question-list{display:grid;gap:10px;margin-top:22px}
+.question{padding:13px 14px;border-radius:11px;background:var(--teal-pale);color:var(--navy);font-weight:750}
+
+/* RESOURCE CARDS */
+.resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.resource-card{
+  position:relative;overflow:hidden;padding:24px;border-radius:16px;background:white;border:1px solid var(--border);
+  box-shadow:0 10px 26px rgba(8,27,46,.07);transition:.18s ease
+}
+.resource-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(31,166,168,.28)}
+.resource-card small{display:block;color:var(--teal-dark);font-weight:900;text-transform:uppercase;letter-spacing:.7px;margin-bottom:7px}
+.resource-card strong{display:block;color:var(--navy);font-size:17px;line-height:1.25}
+.resource-card p{color:var(--soft);font-size:13px;margin:8px 0 12px}
+
+/* CONTACT CTA */
+.contact{
+  padding:74px 0;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(31,166,168,.13),transparent 35%),
+    linear-gradient(145deg,var(--navy-dark),var(--navy-mid));
+  color:white
+}
+.contact .section-head{text-align:center}
+.contact .section-lead{color:#C7D9DD;margin-inline:auto}
+.contact-grid{max-width:840px;margin:30px auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.contact-card{
+  position:relative;overflow:hidden;min-height:105px;padding:18px;border-radius:14px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.075);border:1px solid rgba(101,216,211,.17);transition:.18s ease
+}
+.contact-card.wide{grid-column:1/-1}
+.contact-card[href]:hover{transform:translateY(-3px);background:rgba(255,255,255,.12);border-color:rgba(101,216,211,.35)}
+.contact-card small{color:var(--teal-light);font-weight:900;text-transform:uppercase;letter-spacing:.7px}
+.contact-card strong{font-size:17px;margin-top:3px}
+.contact-card span{color:#C3D5DA;font-size:11px;margin-top:3px}
+
+/* FOOTER */
+footer{background:#04111C;color:#AFC1C7;padding:34px 0 90px}
+.footer-grid{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:start}
+.footer-brand{color:white;font-weight:900}
+.footer-note{font-size:11px;line-height:1.55;max-width:760px;margin-top:8px}
+.footer-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-end;font-size:12px}
+.footer-links a:hover{color:var(--teal-light)}
+.copyright{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.08);padding-top:17px;font-size:11px}
+
+/* REFERRAL MODAL */
+.modal-backdrop{
+  position:fixed;inset:0;z-index:3000;display:none;align-items:flex-start;justify-content:center;
+  overflow:auto;background:rgba(3,16,27,.78);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  padding:calc(env(safe-area-inset-top,0px) + 14px) 14px calc(env(safe-area-inset-bottom,0px) + 18px)
+}
+.modal-backdrop.show{display:flex}
+.modal{
+  width:min(100%,590px);max-height:calc(100dvh - 32px);overflow:auto;background:white;border-radius:22px;
+  box-shadow:0 34px 90px rgba(0,0,0,.34)
+}
+.modal-head{
+  position:sticky;top:0;z-index:2;background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--border);padding:19px 20px 14px;display:flex;gap:12px
+}
+.modal-head>div{flex:1}
+.modal-head h2{font-size:24px;color:var(--navy);margin:0}
+.modal-head p{font-size:11px;color:var(--soft);margin:5px 0 0}
+.modal-close{
+  width:38px;height:38px;border:0;border-radius:11px;background:var(--teal-pale);color:var(--navy);font-size:21px
+}
+.form{padding:18px 20px 22px}
+.field{margin-bottom:12px}
+.field label{display:block;color:var(--navy);font-size:11px;font-weight:900;margin-bottom:5px}
+.field input,.field select,.field textarea{
+  width:100%;border:1px solid #D7E3E7;border-radius:12px;background:#FAFCFD;padding:12px;color:var(--text)
+}
+.field textarea{min-height:88px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(31,166,168,.09);background:white}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.notice{padding:12px 13px;background:var(--teal-pale);border:1px solid #CBE7E6;border-radius:12px;color:#46636B;font-size:10.5px;line-height:1.45;margin-bottom:12px}
+.consent{display:flex;gap:9px;align-items:flex-start;padding:12px;border:1px solid var(--border);border-radius:12px;background:#F6FAFB;font-size:10.5px;color:#52636B;margin-bottom:12px}
+.consent input{width:18px;height:18px;accent-color:var(--teal);flex:0 0 18px}
+.form-note{font-size:10px;color:#75858C}
+.submit{width:100%;border:0}
+
+/* MOBILE BAR */
+.mobile-bar{
+  display:none;position:fixed;left:10px;right:10px;bottom:calc(9px + env(safe-area-inset-bottom));
+  z-index:1500;padding:7px;background:rgba(255,255,255,.96);border:1px solid var(--border);border-radius:14px;
+  box-shadow:0 16px 38px rgba(8,27,46,.2);grid-template-columns:repeat(3,1fr);gap:7px
+}
+.mobile-bar a,.mobile-bar button{
+  border:0;min-height:45px;border-radius:9px;background:var(--teal-pale);color:var(--navy);font-weight:850;font-size:12px
+}
+.mobile-bar .refer{background:linear-gradient(135deg,#137B7D,#22B2B4);color:white}
+
+/* ABOUT PHOTO */
+.photo{
+  min-height:430px;border-radius:22px;overflow:hidden;position:relative;
+  background:linear-gradient(145deg,var(--navy),var(--navy-mid));box-shadow:var(--shadow-lg)
+}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-fallback{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;
+  color:white;text-align:center
+}
+.photo-fallback b{font-size:60px}
+.photo-fallback span{color:#BCD0D6}
+
+/* FAQ */
+.faq{display:grid;gap:10px;margin-top:30px;max-width:880px}
+.faq details{background:white;border:1px solid var(--border);border-radius:13px;padding:0 18px}
+.faq summary{list-style:none;padding:17px 0;color:var(--navy);font-weight:850;cursor:pointer}
+.faq summary::-webkit-details-marker{display:none}
+.faq p{color:var(--soft);margin:0;padding:0 0 17px}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  .hero-grid,.split{grid-template-columns:1fr}
+  .grid-3,.resource-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-main{
+    display:none;position:absolute;top:88px;left:0;right:0;background:white;border-bottom:1px solid var(--border);
+    box-shadow:var(--shadow-lg);padding:12px 20px 20px;flex-direction:column;align-items:stretch;gap:3px;max-height:calc(100dvh - 88px);overflow:auto
+  }
+  .nav-main.open{display:flex}
+  .menu-toggle{display:block}
+  .nav-main>a,.nav-dropdown>summary{padding:11px 10px}
+  .nav-dropdown{width:100%}
+  .dropdown-menu{position:static;box-shadow:none;border:0;padding:4px 0 4px 14px;min-width:0}
+  .nav-dropdown:not([open]) .dropdown-menu{display:none}
+}
+@media(max-width:700px){
+  .shell{width:min(calc(100% - 34px),var(--max))}
+  .nav{min-height:78px}
+  .brand-logo{height:58px}
+  .brand-name{font-size:17px}
+  .brand-sub{display:none}
+  .nav-main{top:78px;max-height:calc(100dvh - 78px)}
+  .hero{padding:64px 0}
+  h1{font-size:42px;letter-spacing:-1.3px}
+  .section{padding:64px 0}
+  .grid-3,.grid-2,.resource-grid,.steps{grid-template-columns:1fr}
+  .actions{flex-direction:column}
+  .actions .btn{width:100%}
+  .contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact-card{padding:16px 10px}
+  .contact-card strong{font-size:14px;overflow-wrap:anywhere}
+  .two{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;text-align:center}
+  .footer-links{justify-content:center}
+  .mobile-bar{display:grid}
+  footer{padding-bottom:92px}
+}
+@media(max-width:430px){
+  .hero-card{padding:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+
+
+/* Site-wide mobile action bar alignment */
+.mobile-bar a,
+.mobile-bar button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 0 8px !important;
+  line-height: 1 !important;
+}
+
+</style>
+</head>
+<body data-page="Assisted Living">
+
+<header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./ns-logo.PNG" alt="NextStep Senior Living">
+      <div>
+        <div class="brand-name">NextStep Senior Living</div>
+        <div class="brand-sub">Peoria • Central Illinois</div>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+
+    <div class="nav-main" id="navMain">
+      <a class="" href="./index.html">Home</a>
+      <a class="" href="./how-it-works.html">How It Works</a>
+
+      <details class="nav-dropdown">
+        <summary>Living Options</summary>
+        <div class="dropdown-menu">
+          <a href="./independent-living.html">Independent Living</a>
+          <a href="./assisted-living.html">Assisted Living</a>
+          <a href="./memory-care.html">Memory Care</a>
+        </div>
+      </details>
+
+      <a class="" href="./resources.html">Resources</a>
+      <a class="" href="./professionals.html">For Professionals</a>
+      <a class="" href="./about.html">About</a>
+      <a class="nav-connect" href="./connect.html">Connect</a>
+    </div>
+  </nav>
+</header>
+<main>
+
+<section class="hero">
+  <div class="shell hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Senior Living Options</div>
+      <h1>Assisted Living</h1>
+      <p class="lead">A residential setting that combines housing, daily-life support, meals, activities, and access to staff while helping residents maintain as much independence as possible.</p>
+      <div class="actions"><a class="btn btn-teal open-referral" href="#">Talk Through Your Situation →</a></div>
+    </div>
+    <div class="hero-card">
+      <h2>Who may want to explore this option?</h2>
+      <p>Assisted living may be worth exploring when someone needs regular help with daily activities or benefits from having staff available around the clock, but does not require a hospital or nursing-home level of medical care.</p>
+      <a class="btn btn-light" href="./how-it-works.html">See the NextStep Process →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="shell">
+    <div class="section-head"><div class="eyebrow dark"><span class="dot"></span>What It Can Include</div><h2>Services and support vary by community.</h2><p class="section-lead">These are common examples. Individual communities differ in staffing, services, policies, pricing, and what needs they can support.</p></div>
+    <div class="grid-3"><div class="card"><div class="icon-box">1</div><h3>Personal Care</h3><p>Assistance may include bathing, dressing, grooming, toileting, mobility, and other activities of daily living.</p></div><div class="card"><div class="icon-box">2</div><h3>Medication Support</h3><p>Communities may offer medication reminders or medication-management services depending on state rules and resident needs.</p></div><div class="card"><div class="icon-box">3</div><h3>Meals & Daily Routine</h3><p>Dining, housekeeping, activities, transportation, and wellness support are commonly part of community life.</p></div></div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="shell split">
+    <div>
+      <div class="eyebrow dark"><span class="dot"></span>When to Explore It</div>
+      <h2>Signs it may be worth learning more.</h2>
+      <ul class="bullet-list"><li>Bathing, dressing, grooming, or mobility are becoming harder.</li><li>Medication routines are difficult to manage consistently.</li><li>Family is providing more daily support than can be sustained.</li><li>Living alone is creating safety, nutrition, isolation, or routine concerns.</li></ul>
+    </div>
+    <div class="feature-panel">
+      <div class="eyebrow"><span class="dot"></span>Tour Questions</div>
+      <h3>Ask how the community actually works.</h3>
+      <div class="question-list"><div class="question">How are care needs evaluated and priced?</div><div class="question">Who is on-site overnight and on weekends?</div><div class="question">How are changes in condition communicated to families?</div><div class="question">What happens if a resident needs more help in the future?</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="shell">
+    <div class="section-head center"><div class="eyebrow dark"><span class="dot"></span>Compare Your Options</div><h2>Use the right resource before you decide.</h2><p class="section-lead">NextStep has printable tools for tours, cost comparison, staffing questions, moving, and more.</p></div>
+    <div class="actions" style="justify-content:center"><a class="btn btn-outline" href="./resources.html">Visit Family Resources →</a><a class="btn btn-teal open-referral" href="#">Ask NextStep →</a></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="shell">
+    <div class="section-head center">
+      <div class="eyebrow"><span class="dot"></span>Connect with NextStep</div>
+      <h2>Not sure where to start?</h2>
+      <p class="section-lead">Start with a conversation. You do not need to have everything figured out before reaching out.</p>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card clickable" href="tel:+15418917526"><small>Call Tyler</small><strong>541.891.7526</strong><span>Tap to call directly.</span></a>
+      <a class="contact-card clickable" href="sms:+15418917526"><small>Text Tyler</small><strong>541.891.7526</strong><span>Tap to start a text.</span></a>
+      <a class="contact-card wide clickable" href="mailto:info@nextstepseniorlivingsolutions.com"><small>Email NextStep</small><strong>info@nextstepseniorlivingsolutions.com</strong><span>Send a general question or introduction.</span></a>
+      <div class="contact-card wide"><small>Service Area</small><strong>Peoria & Central Illinois</strong><span>Local senior living guidance and referral support.</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="shell footer-grid">
+    <div>
+      <div class="footer-brand">NextStep Senior Living, LLC</div>
+      <div class="footer-note">
+        Families are not charged for NextStep's senior living placement assistance. NextStep may receive compensation from participating senior living communities when a referred individual moves into a community. Recommendations and placement decisions remain the family's choice.
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="./privacy.html">Privacy Policy</a>
+      <a href="./resources.html">Family Resources</a>
+      <a href="./professionals.html">For Professionals</a>
+      <a href="./connect.html">Digital Business Card</a>
+    </div>
+    <div class="copyright">© 2026 NextStep Senior Living, LLC. All rights reserved.</div>
+  </div>
+</footer>
+<div class="mobile-bar">
+  <a href="tel:+15418917526">Call</a>
+  <a href="sms:+15418917526">Text</a>
+  <button class="refer open-referral" type="button">Refer</button>
+</div>
+<script>
+
+(function(){
+  const menuBtn=document.getElementById("menuToggle");
+  const nav=document.getElementById("navMain");
+  if(menuBtn&&nav){
+    menuBtn.addEventListener("click",()=>{
+      const open=nav.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded",String(open));
+      document.body.classList.toggle("menu-open",open);
+    });
+    nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+      nav.classList.remove("open");document.body.classList.remove("menu-open");
+      menuBtn.setAttribute("aria-expanded","false");
+    }));
+  }
+
+  // Close desktop dropdowns when clicking outside.
+  document.addEventListener("click",(e)=>{
+    document.querySelectorAll(".nav-dropdown[open]").forEach(d=>{
+      if(!d.contains(e.target)) d.removeAttribute("open");
+    });
+  });
+
+  // Press feedback for touch.
+  document.querySelectorAll("a,button,.clickable").forEach(el=>{
+    const on=()=>el.classList.add("is-pressed");
+    const off=()=>setTimeout(()=>el.classList.remove("is-pressed"),140);
+    el.addEventListener("touchstart",on,{passive:true});
+    el.addEventListener("touchend",off,{passive:true});
+    el.addEventListener("touchcancel",off,{passive:true});
+  });
+
+  // Inject one shared referral modal.
+  const modalHTML=`
+  <div class="modal-backdrop" id="referralModal" role="dialog" aria-modal="true" aria-labelledby="referralTitle" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <h2 id="referralTitle">Refer a Family</h2>
+          <p>Share basic contact and referral information. Please do not include medical records or sensitive health information.</p>
+        </div>
+        <button class="modal-close" type="button" id="closeReferral" aria-label="Close referral form">×</button>
+      </div>
+      <form class="form" id="referralForm">
+        <div class="two">
+          <div class="field"><label for="familyName">Family / Resident Name</label><input id="familyName" name="familyName" type="text" placeholder="Name"></div>
+          <div class="field"><label for="referrerName">Your Name</label><input id="referrerName" name="referrerName" type="text" placeholder="Your name"></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="phone">Best Phone</label><input id="phone" name="phone" type="tel" placeholder="Phone number"></div>
+          <div class="field"><label for="email">Best Email</label><input id="email" name="email" type="email" placeholder="Email address"></div>
+        </div>
+        <div class="two">
+          <div class="field">
+            <label for="careType">Type of Care</label>
+            <select id="careType" name="careType">
+              <option value="">Select</option>
+              <option>Independent Living</option><option>Assisted Living</option><option>Memory Care</option><option>Not Sure Yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="timeframe">Timeframe</label>
+            <select id="timeframe" name="timeframe">
+              <option value="">Select</option>
+              <option>Immediately</option><option>Within 30 days</option><option>1–3 months</option><option>3+ months</option><option>Just exploring</option>
+            </select>
+          </div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="area">Preferred Area</label><input id="area" name="area" type="text" placeholder="Peoria, Morton, Washington, etc."></div>
+          <div class="field">
+            <label for="budget">Approximate Monthly Budget</label>
+            <select id="budget" name="budget">
+              <option value="">Select</option>
+              <option>Under $3,000</option><option>$3,000–$4,000</option><option>$4,000–$5,000</option><option>$5,000–$6,500</option><option>$6,500+</option><option>Not Sure Yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="relationship">Relationship to Family / Resident</label><input id="relationship" name="relationship" type="text" placeholder="Family member, social worker, discharge planner, etc."></div>
+        <div class="field"><label for="notes">General Notes</label><textarea id="notes" name="notes" placeholder="General preferences, timing, or other non-medical information."></textarea></div>
+        <div class="notice"><strong>Privacy notice:</strong> Do not submit diagnoses, medication lists, medical records, Social Security numbers, insurance numbers, or other sensitive health information through this form.</div>
+        <label class="consent"><input type="checkbox" id="authorization" required><span>I confirm that I am authorized to provide the contact information above and consent to NextStep Senior Living contacting the individual or family regarding senior living services.</span></label>
+        <p class="form-note">This website does not store the information entered here. Submitting prepares an email using your device's email app.</p>
+        <button class="btn btn-teal submit" type="submit">Prepare Referral Email</button>
+      </form>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML("beforeend",modalHTML);
+
+  const modal=document.getElementById("referralModal");
+  const form=document.getElementById("referralForm");
+  const close=document.getElementById("closeReferral");
+
+  function openReferral(e){
+    if(e)e.preventDefault();
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden","false");
+    modal.scrollTop=0;
+    const panel=modal.querySelector(".modal"); if(panel) panel.scrollTop=0;
+    document.body.style.overflow="hidden";
+  }
+  function hideReferral(){
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden","true");
+    document.body.style.overflow="";
+  }
+  document.querySelectorAll(".open-referral").forEach(x=>x.addEventListener("click",openReferral));
+  close.addEventListener("click",hideReferral);
+  modal.addEventListener("click",e=>{if(e.target===modal)hideReferral()});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("show"))hideReferral()});
+
+  // Support direct referral URLs on multi-page site: professionals.html?refer=1
+  if(new URLSearchParams(location.search).get("refer")==="1"){
+    setTimeout(()=>openReferral(),100);
+  }
+
+  form.addEventListener("submit",e=>{
+    e.preventDefault();
+    const d=new FormData(form);
+    const consent="I confirm that I am authorized to provide the contact information above and consent to NextStep Senior Living contacting the individual or family regarding senior living services.";
+    const source=document.body.dataset.page || document.title;
+    const lines=[
+      "Hi Tyler,","",
+      "I would like to refer a family to NextStep Senior Living.","",
+      "Family / Resident Name: "+(d.get("familyName")||""),
+      "Referrer Name: "+(d.get("referrerName")||""),
+      "Best Phone: "+(d.get("phone")||""),
+      "Best Email: "+(d.get("email")||""),
+      "Type of Care: "+(d.get("careType")||""),
+      "Timeframe: "+(d.get("timeframe")||""),
+      "Preferred Area: "+(d.get("area")||""),
+      "Approximate Monthly Budget: "+(d.get("budget")||""),
+      "Relationship: "+(d.get("relationship")||""),"",
+      "Notes:",(d.get("notes")||""),"",
+      "Referral Source: "+source,
+      "Authorization Confirmed: Yes",
+      "Authorization Statement: "+consent,
+      "Authorization Date / Time: "+new Date().toLocaleString()
+    ];
+    const subject=encodeURIComponent("New Family Referral");
+    const body=encodeURIComponent(lines.join("\n"));
+    form.reset();hideReferral();
+    setTimeout(()=>{location.href="mailto:info@nextstepseniorlivingsolutions.com?subject="+subject+"&body="+body},160);
+  });
+
+  // Headshot fallback.
+  const headshot=document.querySelector("[data-headshot]");
+  if(headshot){
+    headshot.addEventListener("load",()=>{const f=document.querySelector(".photo-fallback");if(f)f.style.display="none"});
+    headshot.addEventListener("error",()=>headshot.style.display="none");
+  }
+})();
+
+</script>
+</body>
+</html>
