@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Senior Living Tour Checklist | NextStep Senior Living</title>
+
+  <style>
+    :root {
+      --navy: #081B2E;
+      --navy2: #0E304B;
+      --teal: #1FA6A8;
+      --teal-light: #E8F7F7;
+      --text: #1E2B35;
+      --soft: #667783;
+      --border: #D7E3E7;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 90% 5%, rgba(31,166,168,.13), transparent 28%),
+        #F2F7F8;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .page {
+      width: min(100% - 28px, 850px);
+      margin: 36px auto;
+      background: white;
+      border-radius: 22px;
+      box-shadow: 0 18px 48px rgba(8,27,46,.13);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(145deg, #061522, #0B2A42);
+      color: white;
+      padding: 34px;
+    }
+
+    .brand {
+      color: #65D8D3;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: .9px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 34px;
+      line-height: 1.12;
+      margin: 0 0 10px;
+    }
+
+    .header p {
+      margin: 0;
+      color: #CEDDE1;
+      max-width: 680px;
+    }
+
+    .content {
+      padding: 30px 34px 34px;
+    }
+
+    .community {
+      display: grid;
+      grid-template-columns: 1.4fr .6fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .line {
+      border-bottom: 1px solid #AFC3CA;
+      min-height: 34px;
+      padding-bottom: 4px;
+      color: var(--soft);
+      font-size: 13px;
+    }
+
+    .section {
+      margin-top: 25px;
+    }
+
+    h2 {
+      color: var(--navy);
+      margin: 0 0 12px;
+      font-size: 20px;
+      border-bottom: 2px solid var(--teal-light);
+      padding-bottom: 7px;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 8px;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 9px;
+      align-items: flex-start;
+      font-size: 14px;
+    }
+
+    .box {
+      width: 17px;
+      height: 17px;
+      border: 1.6px solid #6F858D;
+      border-radius: 3px;
+      margin-top: 2px;
+    }
+
+    .notes {
+      min-height: 100px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background:
+        repeating-linear-gradient(
+          white 0,
+          white 27px,
+          #E9EFF1 28px
+        );
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      padding: 0 34px 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      border: 0;
+      font: inherit;
+    }
+
+    .print {
+      background: linear-gradient(135deg, #137B7D, #22B2B4);
+      color: white;
+    }
+
+    .back {
+      background: #EAF4F5;
+      color: var(--navy);
+    }
+
+    @media print {
+      body { background: white; }
+      .page {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .actions { display: none; }
+      .header { padding: 24px 28px; }
+      .content { padding: 24px 28px; }
+    }
+
+    @media (max-width: 600px) {
+      .community { grid-template-columns: 1fr; }
+      .page { margin: 14px auto; }
+      .header, .content { padding-left: 22px; padding-right: 22px; }
+      h1 { font-size: 29px; }
+      .actions { flex-direction: column; padding: 0 22px 24px; }
+      .button { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header class="header">
+      <div class="brand">NextStep Senior Living</div>
+      <h1>Senior Living Tour Checklist</h1>
+      <p>
+        Use this checklist to help compare communities based on the things
+        that matter most to you and your family.
+      </p>
+    </header>
+
+    <div class="content">
+      <div class="community">
+        <div>
+          <strong>Community:</strong>
+          <div class="line"></div>
+        </div>
+        <div>
+          <strong>Tour Date:</strong>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <section class="section">
+        <h2>First Impressions</h2>
+        <div class="checklist">
+          <div class="item"><span class="box"></span><span>Did the community feel welcoming and comfortable?</span></div>
+          <div class="item"><span class="box"></span><span>Were team members friendly and engaged with residents?</span></div>
+          <div class="item"><span class="box"></span><span>Did common areas and apartments appear clean and well maintained?</span></div>
+          <div class="item"><span class="box"></span><span>Could you picture yourself or your family member living here?</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Care & Support</h2>
+        <div class="checklist">
+          <div class="item"><span class="box"></span><span>What level of care can the community provide today?</span></div>
+          <div class="item"><span class="box"></span><span>What happens if care needs increase?</span></div>
+          <div class="item"><span class="box"></span><span>How are emergencies and changes in condition handled?</span></div>
+          <div class="item"><span class="box"></span><span>How are medications and personal care needs managed?</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Staffing & Communication</h2>
+        <div class="checklist">
+          <div class="item"><span class="box"></span><span>Who is the main point of contact for families?</span></div>
+          <div class="item"><span class="box"></span><span>How does the community communicate updates or concerns?</span></div>
+          <div class="item"><span class="box"></span><span>What staffing is available overnight and on weekends?</span></div>
+          <div class="item"><span class="box"></span><span>How does the community respond when a resident needs assistance?</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Dining, Activities & Daily Life</h2>
+        <div class="checklist">
+          <div class="item"><span class="box"></span><span>Can we see a menu and dining schedule?</span></div>
+          <div class="item"><span class="box"></span><span>What activities are offered regularly?</span></div>
+          <div class="item"><span class="box"></span><span>How are new residents introduced to the community?</span></div>
+          <div class="item"><span class="box"></span><span>Are transportation and outings available?</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Cost & Agreement</h2>
+        <div class="checklist">
+          <div class="item"><span class="box"></span><span>What is included in the monthly rate?</span></div>
+          <div class="item"><span class="box"></span><span>What services or care levels cost extra?</span></div>
+          <div class="item"><span class="box"></span><span>How often can rates or care charges change?</span></div>
+          <div class="item"><span class="box"></span><span>Are there entrance, community, or move-in fees?</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>My Notes</h2>
+        <div class="notes"></div>
+      </section>
+    </div>
+
+    <div class="actions">
+      <button class="button print" onclick="window.print()">Print Checklist</button>
+      <a class="button back" href="/" id="backLink">← Back</a>
+    </div>
+  </main>
+
+  <script>
+    const backLink = document.getElementById("backLink");
+
+    if (backLink) {
+      backLink.addEventListener("click", function (event) {
+        if (window.history.length > 1 && document.referrer) {
+          event.preventDefault();
+          window.history.back();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
