@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0B2239" />
+  <title>Connect with Tyler | NextStep Senior Living</title>
+  <meta name="description" content="Connect with Tyler Stearns, Founder of NextStep Senior Living, LLC." />
+
+  <style>
+    :root{
+      --navy:#0B2239;
+      --navy-2:#123A59;
+      --navy-3:#1B4D72;
+      --teal:#1FA6A8;
+      --teal-2:#61D0CD;
+      --white:#FFFFFF;
+      --ink:#17232D;
+      --muted:#657681;
+      --line:rgba(20,61,88,.13);
+      --soft:#F2F7F8;
+      --shadow:0 26px 70px rgba(5,24,38,.24);
+      --shadow-soft:0 12px 30px rgba(10,42,62,.12);
+    }
+
+    *{box-sizing:border-box}
+
+    html{
+      scroll-behavior:smooth;
+      background:var(--navy);
+    }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:Aptos,"Segoe UI",Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(31,166,168,.22), transparent 32%),
+        radial-gradient(circle at 88% 18%, rgba(95,201,199,.14), transparent 26%),
+        linear-gradient(160deg,#081B2E 0%,#0B2239 42%,#123A59 100%);
+      padding:26px 14px 46px;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size:34px 34px;
+      mask-image:linear-gradient(to bottom,rgba(0,0,0,.45),transparent 70%);
+    }
+
+    .shell{
+      width:min(100%,560px);
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
+
+    .ambient{
+      position:absolute;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      filter:blur(55px);
+      opacity:.18;
+      z-index:-1;
+      animation:floatGlow 7s ease-in-out infinite;
+    }
+
+    .ambient.one{
+      background:var(--teal);
+      top:-60px;
+      right:-80px;
+    }
+
+    .ambient.two{
+      background:#6AA6D3;
+      top:330px;
+      left:-120px;
+      animation-delay:1.8s;
+    }
+
+    .card{
+      position:relative;
+      overflow:hidden;
+      border-radius:30px;
+      background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,251,252,.97));
+      border:1px solid rgba(255,255,255,.72);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      animation:cardIn .65s cubic-bezier(.2,.75,.2,1) both;
+    }
+
+    .top-line{
+      height:6px;
+      background:linear-gradient(90deg,var(--teal),var(--teal-2),#75A8D4,var(--navy-3));
+    }
+
+    .hero{
+      text-align:center;
+      padding:30px 22px 16px;
+    }
+
+    .logo-wrap{
+      width:118px;
+      height:118px;
+      margin:0 auto 18px;
+      border-radius:27px;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(circle at 30% 25%,rgba(255,255,255,.95),rgba(244,249,249,.95));
+      border:1px solid rgba(14,61,84,.10);
+      box-shadow:
+        0 18px 38px rgba(8,34,52,.12),
+        inset 0 1px 0 rgba(255,255,255,.85);
+      animation:logoIn .72s .08s cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    .logo-wrap img{
+      width:88%;
+      height:88%;
+      object-fit:contain;
+      display:block;
+    }
+
+    .logo-fallback{
+      display:none;
+      color:var(--navy);
+      font-size:40px;
+      font-weight:900;
+      letter-spacing:-3px;
+    }
+
+    .eyebrow{
+      margin:0 0 8px;
+      color:var(--teal);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:11px;
+      font-weight:900;
+    }
+
+    h1{
+      margin:0;
+      color:var(--navy);
+      font-size:clamp(31px,9vw,42px);
+      line-height:1;
+      letter-spacing:-1.2px;
+      font-weight:900;
+    }
+
+    .role{
+      margin:8px 0 0;
+      color:var(--navy-3);
+      font-size:15px;
+      font-weight:800;
+    }
+
+    .company{
+      margin:3px 0 0;
+      color:var(--ink);
+      font-size:18px;
+      font-weight:900;
+    }
+
+    .tagline{
+      max-width:430px;
+      margin:17px auto 0;
+      color:var(--muted);
+      font-size:15.5px;
+      line-height:1.55;
+    }
+
+    .trust-row{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+      margin:18px auto 4px;
+    }
+
+    .trust-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:8px 11px;
+      border-radius:999px;
+      background:rgba(31,166,168,.08);
+      border:1px solid rgba(31,166,168,.14);
+      color:#177E80;
+      font-size:12px;
+      font-weight:850;
+    }
+
+    .trust-chip svg{
+      width:14px;
+      height:14px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:2.2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .section{
+      padding:10px 20px 0;
+    }
+
+    .section-label{
+      margin:0 0 10px 2px;
+      color:#7A8993;
+      font-size:10.5px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .primary-stack{
+      display:grid;
+      gap:12px;
+    }
+
+    .action{
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      gap:13px;
+      width:100%;
+      min-height:62px;
+      padding:14px 16px;
+      border-radius:18px;
+      text-decoration:none;
+      border:1px solid transparent;
+      transition:
+        transform .18s ease,
+        filter .18s ease,
+        box-shadow .18s ease,
+        border-color .18s ease,
+        background .18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .action::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(
+        120deg,
+        transparent 24%,
+        rgba(255,255,255,.24) 46%,
+        transparent 67%
+      );
+      transform:translateX(-130%);
+      transition:transform .48s ease;
+    }
+
+    .action-icon{
+      width:40px;
+      height:40px;
+      border-radius:13px;
+      flex:0 0 40px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.13);
+    }
+
+    .action-icon svg{
+      width:20px;
+      height:20px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .action-copy{
+      flex:1;
+      min-width:0;
+      text-align:left;
+    }
+
+    .action-title{
+      display:block;
+      font-size:16px;
+      font-weight:900;
+      line-height:1.1;
+    }
+
+    .action-sub{
+      display:block;
+      margin-top:4px;
+      font-size:11.5px;
+      font-weight:650;
+      opacity:.78;
+      line-height:1.25;
+    }
+
+    .chev{
+      width:22px;
+      height:22px;
+      opacity:.76;
+      flex:0 0 22px;
+    }
+
+    .primary{
+      color:white;
+      background:linear-gradient(135deg,#0B2239,#174B70);
+      box-shadow:0 12px 26px rgba(11,34,57,.20);
+    }
+
+    .referral{
+      color:white;
+      background:linear-gradient(135deg,#157D80,#22AFB1);
+      box-shadow:0 12px 26px rgba(31,166,168,.23);
+    }
+
+    .quick-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:9px;
+    }
+
+    .quick{
+      min-height:83px;
+      padding:12px 7px;
+      border-radius:17px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.82);
+      color:var(--navy);
+      text-decoration:none;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      box-shadow:0 7px 18px rgba(10,39,58,.06);
+      transition:
+        transform .18s ease,
+        background .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease,
+        filter .18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .quick svg{
+      width:21px;
+      height:21px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .quick span{
+      font-size:11px;
+      font-weight:850;
+    }
+
+    .partner-card{
+      margin-top:13px;
+      padding:17px;
+      border-radius:19px;
+      background:
+        radial-gradient(circle at 90% 20%,rgba(31,166,168,.16),transparent 36%),
+        linear-gradient(145deg,#EEF7F7,#F7FAFB);
+      border:1px solid rgba(31,166,168,.16);
+      display:flex;
+      align-items:center;
+      gap:13px;
+    }
+
+    .partner-icon{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      flex:0 0 44px;
+      display:grid;
+      place-items:center;
+      background:white;
+      color:var(--teal);
+      box-shadow:0 7px 18px rgba(10,39,58,.08);
+    }
+
+    .partner-icon svg{
+      width:22px;
+      height:22px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .partner-copy{
+      flex:1;
+      min-width:0;
+    }
+
+    .partner-title{
+      color:var(--navy);
+      font-weight:900;
+      font-size:14px;
+      margin:0 0 3px;
+    }
+
+    .partner-text{
+      margin:0;
+      color:var(--muted);
+      font-size:11.5px;
+      line-height:1.4;
+    }
+
+    .partner-link{
+      margin-left:auto;
+      white-space:nowrap;
+      color:var(--teal);
+      text-decoration:none;
+      font-size:12px;
+      font-weight:900;
+    }
+
+    .share-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:13px;
+    }
+
+    .mini-btn{
+      min-height:47px;
+      border-radius:15px;
+      border:1px solid var(--line);
+      background:white;
+      color:var(--navy);
+      text-decoration:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-size:12px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 6px 16px rgba(10,39,58,.05);
+      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+      font-family:inherit;
+    }
+
+    .mini-btn svg{
+      width:17px;
+      height:17px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .contact-block{
+      margin:22px 20px 0;
+      padding:18px 0 21px;
+      border-top:1px solid var(--line);
+      text-align:center;
+    }
+
+    .contact-name{
+      margin:0 0 8px;
+      color:var(--navy);
+      font-size:13px;
+      font-weight:900;
+    }
+
+    .contact-line{
+      margin:4px 0;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.4;
+      overflow-wrap:anywhere;
+    }
+
+    .contact-line a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .footer-note{
+      margin:18px 12px 0;
+      color:rgba(255,255,255,.72);
+      font-size:11px;
+      line-height:1.45;
+      text-align:center;
+    }
+
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:24px;
+      transform:translate(-50%,18px);
+      width:min(calc(100% - 30px),430px);
+      padding:12px 16px;
+      border-radius:14px;
+      color:white;
+      background:rgba(8,27,46,.94);
+      box-shadow:0 16px 40px rgba(0,0,0,.25);
+      text-align:center;
+      font-size:12.5px;
+      font-weight:800;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .22s ease,transform .22s ease;
+      z-index:30;
+    }
+
+    .toast.show{
+      opacity:1;
+      transform:translate(-50%,0);
+    }
+
+    @media (hover:hover) and (pointer:fine){
+      .action:hover{
+        transform:translateY(-2px) scale(1.008);
+        filter:brightness(1.07);
+      }
+
+      .action:hover::after{
+        transform:translateX(130%);
+      }
+
+      .primary:hover{
+        box-shadow:
+          0 16px 32px rgba(11,34,57,.28),
+          0 0 0 3px rgba(31,166,168,.12);
+      }
+
+      .referral:hover{
+        box-shadow:
+          0 16px 34px rgba(31,166,168,.31),
+          0 0 0 3px rgba(31,166,168,.13);
+      }
+
+      .quick:hover,
+      .mini-btn:hover{
+        transform:translateY(-2px);
+        background:#fff;
+        border-color:rgba(31,166,168,.42);
+        box-shadow:
+          0 12px 25px rgba(10,39,58,.11),
+          0 0 0 3px rgba(31,166,168,.08);
+      }
+
+      .partner-link:hover{
+        text-decoration:underline;
+      }
+    }
+
+    .action:active,
+    .quick:active,
+    .mini-btn:active{
+      transform:scale(.975);
+      filter:brightness(1.08);
+    }
+
+    .action:focus-visible,
+    .quick:focus-visible,
+    .mini-btn:focus-visible,
+    .partner-link:focus-visible{
+      outline:none;
+      box-shadow:0 0 0 4px rgba(31,166,168,.20);
+    }
+
+    @keyframes cardIn{
+      from{opacity:0;transform:translateY(18px) scale(.985)}
+      to{opacity:1;transform:translateY(0) scale(1)}
+    }
+
+    @keyframes logoIn{
+      from{opacity:0;transform:translateY(10px) scale(.88)}
+      to{opacity:1;transform:translateY(0) scale(1)}
+    }
+
+    @keyframes floatGlow{
+      0%,100%{transform:translate3d(0,0,0) scale(1)}
+      50%{transform:translate3d(0,14px,0) scale(1.08)}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+      }
+    }
+
+    @media (min-width:600px){
+      body{padding-top:46px}
+      .hero{padding:36px 34px 18px}
+      .section{padding-left:28px;padding-right:28px}
+      .contact-block{margin-left:28px;margin-right:28px}
+    }
+  </style>
+</head>
+
+<body>
+  <main class="shell">
+    <div class="ambient one"></div>
+    <div class="ambient two"></div>
+
+    <section class="card">
+      <div class="top-line"></div>
+
+      <header class="hero">
+        <div class="logo-wrap">
+          <img
+            src="ns-logo.PNG"
+            alt="NextStep Senior Living logo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+          />
+          <div class="logo-fallback">NS</div>
+        </div>
+
+        <p class="eyebrow">Senior Living Guidance</p>
+        <h1>Tyler Stearns</h1>
+        <p class="role">Founder</p>
+        <p class="company">NextStep Senior Living, LLC</p>
+
+        <p class="tagline">
+          Your trusted guide to the right senior living choice.
+        </p>
+
+        <div class="trust-row">
+          <span class="trust-chip">
+            <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            Independent
+          </span>
+          <span class="trust-chip">
+            <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 10-8 10S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Local
+          </span>
+          <span class="trust-chip">
+            <svg viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 1 0 0 7H14a3.5 3.5 0 1 1 0 7H6"/></svg>
+            No cost to families
+          </span>
+        </div>
+      </header>
+
+      <section class="section">
+        <p class="section-label">Start here</p>
+
+        <div class="primary-stack">
+          <a class="action primary" href="tyler-stearns.vcf">
+            <span class="action-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </span>
+            <span class="action-copy">
+              <span class="action-title">Save Tyler to Contacts</span>
+              <span class="action-sub">Keep my phone, email and website handy</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24">
+              <path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <a
+            class="action referral"
+            href="mailto:info@nextstepseniorlivingsolutions.com?subject=New%20Family%20Referral&body=Hi%20Tyler%2C%0A%0AI%20would%20like%20to%20refer%20a%20family%20to%20NextStep.%0A%0AFamily%20Name%3A%0ABest%20Phone%3A%0ABest%20Email%3A%0AWhat%20are%20they%20looking%20for%3F%3A%0A%0AThank%20you."
+          >
+            <span class="action-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/>
+              </svg>
+            </span>
+            <span class="action-copy">
+              <span class="action-title">Refer a Family</span>
+              <span class="action-sub">Start a referral in seconds</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24">
+              <path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="section-label">Quick contact</p>
+
+        <div class="quick-grid">
+          <a class="quick" href="tel:+15418917526" aria-label="Call Tyler">
+            <svg viewBox="0 0 24 24">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.61 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.28 1.73.49 2.63.61A2 2 0 0 1 22 16.92Z"/>
+            </svg>
+            <span>Call</span>
+          </a>
+
+          <a class="quick" href="sms:+15418917526" aria-label="Text Tyler">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/>
+            </svg>
+            <span>Text</span>
+          </a>
+
+          <a class="quick" href="mailto:info@nextstepseniorlivingsolutions.com" aria-label="Email Tyler">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m3 7 9 6 9-6"/>
+            </svg>
+            <span>Email</span>
+          </a>
+
+          <a class="quick" href="https://nextstepseniorlivingsolutions.com/" aria-label="Visit NextStep website">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>
+            </svg>
+            <span>Website</span>
+          </a>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+
+          <div class="partner-copy">
+            <p class="partner-title">Healthcare professional?</p>
+            <p class="partner-text">Connect with NextStep about referral and partnership opportunities.</p>
+          </div>
+
+          <a
+            class="partner-link"
+            href="mailto:info@nextstepseniorlivingsolutions.com?subject=Healthcare%20Professional%20Partnership"
+          >
+            Connect →
+          </a>
+        </div>
+
+        <div class="share-row">
+          <button class="mini-btn" type="button" id="shareBtn">
+            <svg viewBox="0 0 24 24">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/>
+            </svg>
+            Share this page
+          </button>
+
+          <!-- Replace # with your personal LinkedIn URL when ready -->
+          <a
+            class="mini-btn"
+            href="#"
+            onclick="showToast('Add your LinkedIn profile URL to this button.'); return false;"
+          >
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M8 10v7M8 7v.01M12 17v-4a3 3 0 0 1 6 0v4M12 10v7"/>
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </section>
+
+      <footer class="contact-block">
+        <p class="contact-name">NextStep Senior Living, LLC</p>
+        <p class="contact-line">
+          <a href="tel:+15418917526">541.891.7526</a>
+        </p>
+        <p class="contact-line">
+          <a href="mailto:info@nextstepseniorlivingsolutions.com">info@nextstepseniorlivingsolutions.com</a>
+        </p>
+        <p class="contact-line">
+          <a href="https://nextstepseniorlivingsolutions.com/">nextstepseniorlivingsolutions.com</a>
+        </p>
+      </footer>
+    </section>
+
+    <p class="footer-note">
+      Personalized senior living guidance • No cost to families
+    </p>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const toast = document.getElementById('toast');
+    let toastTimer;
+
+    function showToast(message){
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      const shareData = {
+        title: 'Tyler Stearns | NextStep Senior Living',
+        text: 'Connect with Tyler at NextStep Senior Living.',
+        url: window.location.href
+      };
+
+      try{
+        if(navigator.share){
+          await navigator.share(shareData);
+        }else if(navigator.clipboard){
+          await navigator.clipboard.writeText(window.location.href);
+          showToast('Page link copied.');
+        }else{
+          showToast('Copy the page address from your browser.');
+        }
+      }catch(err){
+        if(err && err.name !== 'AbortError'){
+          showToast('Unable to share right now.');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
