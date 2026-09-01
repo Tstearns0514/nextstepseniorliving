@@ -62,7 +62,7 @@
     body {
       margin: 0;
       font-family: "Aptos", "Segoe UI", Arial, sans-serif;
-      background: var(--cream);
+      background: #061522;
       color: var(--text);
       line-height: 1.6;
     }
@@ -482,7 +482,34 @@
     /* PATHWAYS */
 
     .pathways {
-      padding-top: 75px;
+      padding-top: 78px;
+      background:
+        radial-gradient(
+          circle at 88% 12%,
+          rgba(31, 166, 168, 0.16),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 8% 88%,
+          rgba(90, 150, 195, 0.09),
+          transparent 26%
+        ),
+        linear-gradient(145deg, #061522, #0A2338 56%, #0E304B);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pathways .section-label {
+      color: #65D8D3;
+    }
+
+    .pathways .section-heading {
+      color: white;
+    }
+
+    .pathways .section-intro {
+      color: #C9D9DE;
     }
 
     .pathway-grid {
@@ -495,9 +522,17 @@
     .pathway {
       padding: 36px;
       border-radius: var(--radius);
-      background: white;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
+      background:
+        radial-gradient(
+          circle at 92% 10%,
+          rgba(31, 166, 168, 0.08),
+          transparent 34%
+        ),
+        linear-gradient(145deg, #FFFFFF, #F4FAFB);
+      box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(101, 216, 211, 0.17);
       transition:
         transform 0.2s ease,
         box-shadow 0.2s ease,
@@ -611,8 +646,15 @@
     /* PROCESS */
 
     .process-section {
-      background: var(--green);
+      background:
+        radial-gradient(
+          circle at 16% 18%,
+          rgba(31, 166, 168, 0.14),
+          transparent 26%
+        ),
+        linear-gradient(135deg, #0B2A42, #081B2E 62%, #061522);
       color: white;
+      border-top: 1px solid rgba(101, 216, 211, 0.10);
     }
 
     .process-section .section-label {
@@ -635,8 +677,14 @@
     }
 
     .step {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.13);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.095),
+          rgba(255, 255, 255, 0.045)
+        );
+      border: 1px solid rgba(101, 216, 211, 0.16);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
       padding: 32px;
       border-radius: 16px;
     }
@@ -661,6 +709,18 @@
 
     /* CARE OPTIONS */
 
+    #care {
+      background:
+        radial-gradient(
+          circle at 92% 12%,
+          rgba(31, 166, 168, 0.10),
+          transparent 28%
+        ),
+        linear-gradient(180deg, #F4FAFB 0%, #EAF4F6 100%);
+    }
+
+
+
     .care-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -669,8 +729,9 @@
     }
 
     .care-card {
-      background: white;
-      border: 1px solid var(--border);
+      background:
+        linear-gradient(145deg, #FFFFFF, #F8FBFC);
+      border: 1px solid rgba(14, 48, 75, 0.11);
       border-radius: var(--radius);
       padding: 31px;
       box-shadow: var(--shadow);
@@ -711,9 +772,15 @@
     /* WHY NEXTSTEP */
 
     .why-section {
-      background: #EEF7F8;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(
+          circle at 84% 18%,
+          rgba(31, 166, 168, 0.13),
+          transparent 30%
+        ),
+        linear-gradient(145deg, #E9F4F6, #DCEBF0);
+      border-top: 1px solid rgba(14, 48, 75, 0.08);
+      border-bottom: 1px solid rgba(14, 48, 75, 0.10);
     }
 
     .why-layout {
@@ -807,6 +874,43 @@
 
     /* ABOUT */
 
+    #about {
+      background:
+        radial-gradient(
+          circle at 12% 16%,
+          rgba(31, 166, 168, 0.13),
+          transparent 28%
+        ),
+        linear-gradient(145deg, #061522, #0A2338 62%, #0E304B);
+      color: white;
+    }
+
+    #about .section-label {
+      color: #65D8D3;
+    }
+
+    #about .section-heading {
+      color: white;
+    }
+
+    #about .about-copy p {
+      color: #C9D9DE;
+    }
+
+    #about .button-secondary {
+      color: white;
+      border-color: rgba(101, 216, 211, 0.44);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    #about .button-secondary:hover {
+      background: rgba(101, 216, 211, 0.12);
+      border-color: #65D8D3;
+      color: white;
+    }
+
+
+
     .about-grid {
       display: grid;
       grid-template-columns: 0.75fr 1.25fr;
@@ -875,11 +979,12 @@
     }
 
     .about-highlight {
-      background: var(--gold-light);
-      border-left: 4px solid var(--gold);
+      background: rgba(101, 216, 211, 0.10);
+      border: 1px solid rgba(101, 216, 211, 0.18);
+      border-left: 4px solid #65D8D3;
       padding: 17px 20px;
       border-radius: 0 11px 11px 0;
-      color: #285D67;
+      color: #E7F3F5;
       margin: 24px 0;
     }
 
@@ -970,7 +1075,13 @@
     /* RESOURCES */
 
     .resources-section {
-      background: white;
+      background:
+        radial-gradient(
+          circle at 8% 12%,
+          rgba(31, 166, 168, 0.08),
+          transparent 26%
+        ),
+        linear-gradient(180deg, #F8FBFC, #EDF5F7);
     }
 
     .resource-grid {
@@ -981,8 +1092,9 @@
     }
 
     .resource {
-      background: var(--cream);
-      border: 1px solid var(--border);
+      background:
+        linear-gradient(145deg, #FFFFFF, #F3F9FA);
+      border: 1px solid rgba(14, 48, 75, 0.10);
       border-radius: 13px;
       padding: 22px 12px;
       text-align: center;
@@ -1011,7 +1123,13 @@
     /* FAQ */
 
     .faq-section {
-      background: var(--cream);
+      background:
+        radial-gradient(
+          circle at 88% 10%,
+          rgba(31, 166, 168, 0.11),
+          transparent 30%
+        ),
+        linear-gradient(145deg, #DCEAF0, #EEF6F8);
     }
 
     .faq-list {
@@ -1088,7 +1206,7 @@
           rgba(101, 216, 211, 0.20),
           transparent 30%
         ),
-        var(--green);
+        linear-gradient(145deg, #061522, #0B2A42 62%, #0E304B);
       border-radius: 26px;
       padding: 65px;
       text-align: center;
@@ -1162,9 +1280,23 @@
     /* CONTACT */
 
     .contact-strip {
-      padding: 58px 28px;
-      background: #F3F8F9;
-      border-top: 1px solid var(--border);
+      padding: 64px 28px;
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(31, 166, 168, 0.12),
+          transparent 34%
+        ),
+        linear-gradient(145deg, #081B2E, #0B2A42);
+      border-top: 1px solid rgba(101, 216, 211, 0.10);
+    }
+
+    .contact-heading h2 {
+      color: white !important;
+    }
+
+    .contact-heading p {
+      color: #C7D7DD !important;
     }
 
     .contact-heading {
@@ -1193,8 +1325,14 @@
     }
 
     .contact-card {
-      background: white;
-      border: 1px solid var(--border);
+      background:
+        radial-gradient(
+          circle at 92% 10%,
+          rgba(31, 166, 168, 0.07),
+          transparent 34%
+        ),
+        linear-gradient(145deg, #FFFFFF, #F4FAFB);
+      border: 1px solid rgba(101, 216, 211, 0.16);
       border-radius: 15px;
       padding: 24px;
       text-align: center;
