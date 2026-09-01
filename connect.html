@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#081B2E" />
+  <title>Connect with Tyler | NextStep Senior Living</title>
+  <meta name="description" content="Connect with Tyler Stearns, Founder of NextStep Senior Living, LLC." />
+
+  <script>
+    try {
+      if (sessionStorage.getItem('nextstepIntroSeen') === '1') {
+        document.documentElement.classList.add('skip-intro');
+      }
+    } catch (e) {}
+  </script>
+
+
+  <!-- Uses your existing logo as the browser / saved-home-screen icon -->
+  <link rel="icon" href="ns-logo.PNG" />
+  <link rel="apple-touch-icon" href="ns-logo.PNG" />
+
+  <style>
+    :root{
+      --navy:#081B2E;
+      --navy2:#0E304B;
+      --navy3:#174B70;
+      --teal:#1FA6A8;
+      --teal2:#65D8D3;
+      --teal3:#B9F1EE;
+      --white:#FFFFFF;
+      --ink:#18252F;
+      --muted:#667783;
+      --line:rgba(20,61,88,.12);
+      --soft:#F4F8F9;
+      --shadow:0 30px 80px rgba(1,17,29,.28);
+    }
+
+    *{box-sizing:border-box}
+
+    html{background:var(--navy);scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:Aptos,"Segoe UI",Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 15% 8%,rgba(31,166,168,.26),transparent 28%),
+        radial-gradient(circle at 88% 18%,rgba(96,183,224,.18),transparent 24%),
+        linear-gradient(155deg,#061522 0%,#081B2E 44%,#0E304B 100%);
+      padding:28px 14px 48px;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.45;
+      background:
+        linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+      background-size:36px 36px;
+      mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 75%);
+    }
+
+    .orb{
+      position:fixed;
+      border-radius:50%;
+      filter:blur(70px);
+      opacity:.22;
+      pointer-events:none;
+      animation:floatOrb 9s ease-in-out infinite;
+    }
+    .orb.one{width:240px;height:240px;background:var(--teal);top:-80px;right:-80px}
+    .orb.two{width:210px;height:210px;background:#5F9FD0;left:-100px;top:42%;animation-delay:2.5s}
+
+    .shell{width:min(100%,580px);margin:0 auto;position:relative;z-index:1;perspective:1200px;transform:translateZ(0)}
+
+    .card{
+      position:relative;
+      overflow:hidden;
+      border-radius:32px;
+      background:linear-gradient(180deg,rgba(255,255,255,.985),rgba(248,251,252,.965));
+      border:1px solid rgba(255,255,255,.68);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      transform-style:preserve-3d;
+      transition:transform .18s ease,box-shadow .18s ease;
+      animation:cardIn .65s cubic-bezier(.2,.75,.2,1) both;
+    }
+
+    .top-line{
+      height:7px;
+      background:linear-gradient(90deg,var(--teal),var(--teal2),#77A9D2,var(--navy3));
+      box-shadow:0 0 22px rgba(31,166,168,.55);
+    }
+
+    .hero{text-align:center;padding:30px 22px 16px;position:relative}
+
+    .identity{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px}
+
+    .logo-wrap,.portrait-wrap{
+      width:94px;height:94px;border-radius:24px;display:grid;place-items:center;
+      background:rgba(255,255,255,.95);border:1px solid rgba(14,61,84,.10);
+      box-shadow:0 14px 34px rgba(8,34,52,.12);overflow:hidden;position:relative;
+    }
+
+    .logo-wrap img{width:88%;height:88%;object-fit:contain}
+
+    .portrait-wrap{
+      background:radial-gradient(circle at 35% 28%,rgba(101,216,211,.34),transparent 32%),
+                 linear-gradient(145deg,#0E304B,#174B70);
+      color:#fff;font-size:30px;font-weight:900;letter-spacing:-1px;
+    }
+
+    .portrait-wrap img{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+    }
+
+    .portrait-fallback{display:grid;place-items:center;width:100%;height:100%}
+
+    .portrait-wrap small{
+      display:block;position:absolute;bottom:6px;left:0;width:100%;text-align:center;
+      font-size:7px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;
+      color:rgba(255,255,255,.72);background:rgba(8,27,46,.38);padding:3px 0;
+      backdrop-filter:blur(3px);
+    }
+
+    .eyebrow{margin:0 0 8px;color:var(--teal);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:900}
+    h1{margin:0;color:var(--navy);font-size:clamp(31px,9vw,43px);line-height:1;letter-spacing:-1.25px;font-weight:900}
+    .role{margin:8px 0 0;color:var(--navy3);font-size:15px;font-weight:800}
+    .company{margin:3px 0 0;color:var(--ink);font-size:18px;font-weight:900}
+    .tagline{max-width:440px;margin:16px auto 0;color:var(--muted);font-size:15.5px;line-height:1.5}
+
+    .badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:18px auto 5px}
+    .badge{
+      display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;
+      background:rgba(31,166,168,.085);border:1px solid rgba(31,166,168,.15);
+      color:#167E80;font-size:11.5px;font-weight:850;
+    }
+    .badge.local{background:linear-gradient(135deg,#E8F7F7,#F4FBFB);box-shadow:0 6px 18px rgba(31,166,168,.08)}
+    .badge svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+    .section{padding:10px 20px 0}
+    .section-label{margin:0 0 10px 2px;color:#7A8993;font-size:10.5px;font-weight:900;text-transform:uppercase;letter-spacing:.12em}
+
+    .primary-stack{display:grid;gap:12px;margin-bottom:10px}
+
+    .action{
+      position:relative;overflow:hidden;display:flex;align-items:center;gap:13px;
+      min-height:64px;padding:14px 16px;border-radius:19px;text-decoration:none;
+      border:1px solid transparent;transition:transform .18s ease,filter .18s ease,box-shadow .18s ease,background .18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .action::after{
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(120deg,transparent 24%,rgba(255,255,255,.30) 46%,transparent 67%);
+      transform:translateX(-130%);transition:transform .48s ease;
+    }
+
+    .action-icon{width:42px;height:42px;border-radius:14px;flex:0 0 42px;display:grid;place-items:center;background:rgba(255,255,255,.14)}
+    .action-icon svg,.quick svg,.mini-btn svg,.partner-icon svg{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .action-icon svg{width:21px;height:21px}
+    .action-copy{flex:1;min-width:0;text-align:left}
+    .action-title{display:block;font-size:16px;font-weight:900;line-height:1.1}
+    .action-sub{display:block;margin-top:4px;font-size:11.5px;font-weight:650;opacity:.78;line-height:1.25}
+    .chev{width:22px;height:22px;opacity:.76;flex:0 0 22px}
+
+    .primary{
+      color:white;background:linear-gradient(135deg,#081B2E,#174B70);
+      box-shadow:0 13px 28px rgba(11,34,57,.23),0 0 22px rgba(31,166,168,.08);
+    }
+
+    .referral{
+      color:white;background:linear-gradient(135deg,#137B7D,#22B2B4);
+      box-shadow:0 13px 30px rgba(31,166,168,.30),0 0 22px rgba(31,166,168,.16);
+      animation:referralPulse 3.2s ease-in-out infinite;
+    }
+
+    .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+    .quick{
+      min-height:84px;padding:12px 7px;border-radius:17px;border:1px solid var(--line);
+      background:rgba(255,255,255,.84);color:var(--navy);text-decoration:none;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+      box-shadow:0 7px 18px rgba(10,39,58,.06);
+      transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease,color .18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .quick svg{width:21px;height:21px}
+    .quick span{font-size:11px;font-weight:850}
+
+    .credibility{
+      margin-top:14px;padding:16px;border-radius:18px;
+      background:linear-gradient(145deg,#F3F9F9,#FAFCFC);border:1px solid rgba(31,166,168,.12);
+    }
+    .credibility-title{margin:0 0 10px;color:var(--navy);font-size:13px;font-weight:900;text-align:center}
+    .credibility-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .credibility-item{padding:10px 7px;border-radius:14px;background:white;text-align:center;border:1px solid var(--line)}
+    .credibility-item strong{display:block;color:var(--teal);font-size:12px;margin-bottom:3px}
+    .credibility-item span{color:var(--muted);font-size:9.5px;line-height:1.3}
+
+    .partner-card{
+      margin-top:14px;padding:17px;border-radius:19px;
+      background:radial-gradient(circle at 90% 20%,rgba(31,166,168,.16),transparent 36%),linear-gradient(145deg,#EEF7F7,#F8FBFB);
+      border:1px solid rgba(31,166,168,.16);display:flex;align-items:center;gap:13px;
+    }
+    .partner-icon{width:44px;height:44px;border-radius:14px;flex:0 0 44px;display:grid;place-items:center;background:white;color:var(--teal);box-shadow:0 7px 18px rgba(10,39,58,.08)}
+    .partner-icon svg{width:22px;height:22px}
+    .partner-copy{flex:1;min-width:0}
+    .partner-title{margin:0 0 3px;color:var(--navy);font-weight:900;font-size:14px}
+    .partner-text{margin:0;color:var(--muted);font-size:11.5px;line-height:1.4}
+    .partner-link{white-space:nowrap;color:var(--teal);text-decoration:none;font-size:12px;font-weight:900}
+
+
+    /* Healthcare Professional interaction */
+    .partner-card{
+      cursor:pointer;
+      transition:
+        transform .18s ease,
+        background .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease,
+        filter .18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    @media (hover:hover) and (pointer:fine){
+      .partner-card:hover{
+        transform:translateY(-2px);
+        background:
+          radial-gradient(circle at 90% 20%,rgba(31,166,168,.22),transparent 36%),
+          linear-gradient(145deg,#E5F6F5,#F7FBFB);
+        border-color:rgba(31,166,168,.38);
+        box-shadow:
+          0 12px 26px rgba(10,39,58,.11),
+          0 0 0 3px rgba(31,166,168,.07);
+        filter:brightness(1.025);
+      }
+
+      .partner-card:hover .partner-icon{
+        color:#11898B;
+        box-shadow:
+          0 8px 20px rgba(31,166,168,.16),
+          0 0 0 3px rgba(31,166,168,.06);
+      }
+
+      .partner-card:hover .partner-link{
+        color:#11898B;
+      }
+    }
+
+    .partner-card:active,
+    .partner-card.is-pressed{
+      transform:scale(.985);
+      background:
+        radial-gradient(circle at 90% 20%,rgba(31,166,168,.24),transparent 36%),
+        linear-gradient(145deg,#DDF3F2,#F4FAFA);
+      border-color:rgba(31,166,168,.42);
+      box-shadow:
+        0 8px 20px rgba(31,166,168,.17),
+        0 0 0 3px rgba(31,166,168,.08);
+      filter:brightness(1.04);
+    }
+
+    .share-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}
+    .mini-btn{
+      min-height:48px;border-radius:15px;border:1px solid var(--line);background:white;color:var(--navy);
+      text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;
+      font-size:12px;font-weight:900;cursor:pointer;box-shadow:0 6px 16px rgba(10,39,58,.05);
+      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease,color .18s ease;
+      font-family:inherit;
+    }
+    .mini-btn svg{width:17px;height:17px}
+
+    .qr-panel{
+      margin:14px 20px 0;padding:18px;border-radius:20px;background:linear-gradient(145deg,#0A2439,#123A59);
+      color:white;display:flex;align-items:center;gap:16px;box-shadow:0 16px 34px rgba(8,34,52,.16);
+    }
+    .qr-panel img{width:96px;height:96px;border-radius:14px;background:white;padding:6px;flex:0 0 96px}
+    .qr-copy h3{margin:0 0 5px;font-size:14px;font-weight:900}
+    .qr-copy p{margin:0;color:rgba(255,255,255,.74);font-size:11px;line-height:1.4}
+
+    .contact-block{margin:22px 20px 0;padding:18px 0 21px;border-top:1px solid var(--line);text-align:center}
+    .contact-name{margin:0 0 8px;color:var(--navy);font-size:13px;font-weight:900}
+    .contact-line{margin:4px 0;color:var(--muted);font-size:12px;line-height:1.4;overflow-wrap:anywhere}
+    .contact-line a{color:inherit;text-decoration:none}
+    .footer-note{margin:18px 12px 0;color:rgba(255,255,255,.72);font-size:11px;line-height:1.45;text-align:center}
+
+
+    .privacy-box{
+      margin:4px 0 13px;
+      padding:13px 14px;
+      border-radius:14px;
+      background:#FFF9EC;
+      border:1px solid #F0D89A;
+      color:#5A4719;
+    }
+    .privacy-box strong{
+      display:block;
+      margin-bottom:5px;
+      color:#3E3215;
+      font-size:11.5px;
+      font-weight:900;
+    }
+    .privacy-box p{
+      margin:0;
+      font-size:10.5px;
+      line-height:1.45;
+    }
+
+    .consent-row{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      margin:0 0 13px;
+      padding:12px 13px;
+      border-radius:14px;
+      background:#F5F9FA;
+      border:1px solid var(--line);
+      color:var(--ink);
+      cursor:pointer;
+    }
+    .consent-row input{
+      width:18px;
+      height:18px;
+      margin:1px 0 0;
+      flex:0 0 18px;
+      accent-color:var(--teal);
+    }
+    .consent-row span{
+      font-size:10.5px;
+      line-height:1.45;
+      color:#52636E;
+    }
+
+    .legal-disclosure{
+      margin:16px 20px 0;
+      padding:15px 16px;
+      border-radius:18px;
+      background:#F7FAFB;
+      border:1px solid var(--line);
+      color:var(--muted);
+      text-align:left;
+    }
+    .legal-disclosure strong{
+      display:block;
+      color:var(--navy);
+      font-size:11.5px;
+      margin-bottom:5px;
+    }
+    .legal-disclosure p{
+      margin:0;
+      font-size:10.5px;
+      line-height:1.5;
+    }
+    .legal-links{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:9px;
+    }
+    .legal-links a{
+      color:var(--teal);
+      text-decoration:none;
+      font-size:10.5px;
+      font-weight:850;
+    }
+
+
+    /* Main-page continuation reveal after the intro */
+
+    @keyframes pageRevealIn{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* Stronger visual anchor for the referral CTA */
+    .referral-featured{
+      position:relative;
+      isolation:isolate;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:
+        0 15px 34px rgba(31,166,168,.32),
+        0 0 0 0 rgba(31,166,168,.18);
+      animation:referralFocus 3.4s ease-in-out infinite;
+    }
+
+    .referral-featured::before{
+      content:"";
+      position:absolute;
+      left:10px;
+      right:10px;
+      bottom:0;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.75),
+        transparent
+      );
+      opacity:.42;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .referral-featured .action-icon,
+    .referral-featured .action-copy,
+    .referral-featured .chev{
+      position:relative;
+      z-index:1;
+    }
+
+    @keyframes referralFocus{
+      0%,100%{
+        box-shadow:
+          0 15px 34px rgba(31,166,168,.28),
+          0 0 0 0 rgba(31,166,168,.12);
+      }
+      50%{
+        box-shadow:
+          0 17px 38px rgba(31,166,168,.36),
+          0 0 0 5px rgba(31,166,168,.035);
+      }
+    }
+
+    /* Referral modal */
+    .modal-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(2,16,28,.72);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      display:none;
+      align-items:flex-start;
+      justify-content:center;
+      overflow-y:auto;
+      overscroll-behavior:contain;
+      -webkit-overflow-scrolling:touch;
+      padding:
+        calc(env(safe-area-inset-top, 0px) + 14px)
+        14px
+        calc(env(safe-area-inset-bottom, 0px) + 18px);
+      z-index:50;
+    }
+    .modal-backdrop.show{display:flex}
+
+    .modal{
+      width:min(100%,560px);
+      max-height:calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 32px);
+      overflow:auto;
+      -webkit-overflow-scrolling:touch;
+      background:white;
+      border-radius:26px;
+      box-shadow:0 30px 90px rgba(0,0,0,.36);
+      border:1px solid rgba(255,255,255,.6);
+      animation:modalUp .24s ease both;
+      margin:0 auto;
+    }
+
+    .modal-header{
+      position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);
+      padding:20px 20px 14px;border-bottom:1px solid var(--line);z-index:2;
+    }
+    .modal-top{display:flex;align-items:flex-start;gap:12px}
+    .modal-title-wrap{flex:1}
+    .modal h2{margin:0;color:var(--navy);font-size:22px;letter-spacing:-.4px}
+    .modal-sub{margin:5px 0 0;color:var(--muted);font-size:12px;line-height:1.45}
+    .close-btn{
+      border:0;background:#EEF4F6;color:var(--navy);width:36px;height:36px;border-radius:12px;
+      font-size:20px;line-height:1;cursor:pointer;
+    }
+
+    .form-body{padding:18px 20px 22px}
+    .field{margin-bottom:13px}
+    .field label{display:block;margin:0 0 6px;color:var(--navy);font-size:11px;font-weight:900}
+    .field input,.field select,.field textarea{
+      width:100%;border:1px solid #D8E3E7;border-radius:14px;background:#FAFCFC;color:var(--ink);
+      padding:13px 13px;font:inherit;font-size:14px;outline:none;
+      transition:border-color .18s ease,box-shadow .18s ease,background .18s ease;
+    }
+    .field textarea{min-height:96px;resize:vertical}
+    .field input:focus,.field select:focus,.field textarea:focus{
+      background:white;border-color:var(--teal);box-shadow:0 0 0 4px rgba(31,166,168,.10);
+    }
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .form-note{margin:4px 0 14px;color:#7A8993;font-size:10.5px;line-height:1.4}
+    .submit-btn{
+      width:100%;border:0;border-radius:16px;padding:15px 16px;
+      color:white;background:linear-gradient(135deg,#137B7D,#22B2B4);
+      font-family:inherit;font-size:14px;font-weight:900;cursor:pointer;
+      box-shadow:0 12px 28px rgba(31,166,168,.25);
+    }
+    .submit-btn:active{transform:scale(.985)}
+
+    /* Connected splash */
+
+    .skip-intro .connected-splash{
+      display:none !important;
+    }
+
+    .connected-splash{
+      position:fixed;
+      inset:0;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 50% 42%,rgba(31,166,168,.09) 0%,rgba(31,166,168,.035) 16%,transparent 34%),
+        linear-gradient(180deg,#061522 0%,#081B2E 58%,#0B2A42 100%);
+      z-index:100;
+      opacity:1;
+      visibility:visible;
+      transform:translateZ(0);
+      backface-visibility:hidden;
+      -webkit-backface-visibility:hidden;
+      will-change:opacity;
+      transition:
+        opacity .32s cubic-bezier(.4,0,.2,1),
+        visibility 0s linear .32s;
+      animation:introBackgroundShift 2.5s ease-in-out both;
+    }
+
+    .connected-splash::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:radial-gradient(circle at 50% 45%,transparent 30%,rgba(2,10,16,.10) 62%,rgba(2,10,16,.28) 100%);
+    }
+
+    /* Smooth handoff: keep the intro completely still and fade the
+       entire splash as one layer so the already-rendered contact page
+       comes through underneath without a jump. */
+    .connected-splash.crossfade{
+      opacity:0;
+      pointer-events:none;
+    }
+
+    .connected-splash.hide{
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+    }
+
+    .intro-top-shimmer{
+      position:absolute;
+      top:0;
+      left:-42%;
+      width:42%;
+      height:2px;
+      background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(101,216,211,.20),
+        rgba(101,216,211,.95),
+        rgba(101,216,211,.20),
+        transparent
+      );
+      box-shadow:0 0 12px rgba(101,216,211,.35);
+      opacity:0;
+      animation:topShimmer 1.05s .62s ease-out both;
+      pointer-events:none;
+      z-index:4;
+    }
+
+    .intro-progress{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:3px;
+      background:rgba(255,255,255,.035);
+      overflow:hidden;
+      z-index:5;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .intro-progress span{
+      display:block;
+      width:100%;
+      height:1px;
+      transform-origin:left center;
+      transform:scaleX(0);
+      background:linear-gradient(90deg,#1FA6A8,#65D8D3,#77A9D2);
+      box-shadow:0 0 12px rgba(31,166,168,.35);
+      border-radius:999px 999px 0 0;
+      animation:introProgressAdvanced 2.5s linear forwards;
+    }
+
+    .connected-card{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      color:white;
+      transform:translateY(-5vh);
+      transform-origin:center center;
+      transition:opacity .24s ease;
+    }
+
+    .connected-logo{
+      width:90px;
+      height:90px;
+      margin:0 auto 21px;
+      border-radius:24px;
+      background:white;
+      display:grid;
+      place-items:center;
+      position:relative;
+      overflow:visible;
+      opacity:0;
+      box-shadow:
+        0 10px 30px rgba(0,0,0,.18),
+        0 0 14px rgba(31,166,168,.075);
+      animation:
+        logoConnectIn .62s .28s cubic-bezier(.16,.88,.25,1.18) forwards,
+        logoSettle .72s .88s ease-in-out both;
+    }
+
+    .connected-logo::before{
+      content:"";
+      position:absolute;
+      inset:-26px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(31,166,168,.16) 0%,rgba(31,166,168,.055) 34%,transparent 68%);
+      opacity:.29;
+      z-index:-2;
+      pointer-events:none;
+      animation:logoBreath 1.8s .35s ease-in-out both;
+    }
+
+    .connected-logo img{
+      width:82%;
+      height:82%;
+      object-fit:contain;
+      position:relative;
+      z-index:4;
+    }
+
+    .connected-logo-fallback{
+      display:none;
+      position:relative;
+      z-index:4;
+      width:100%;
+      height:100%;
+      place-items:center;
+      color:#081B2E;
+      font-size:34px;
+      font-weight:900;
+      letter-spacing:-2px;
+    }
+
+
+    .signal-ring{
+      position:absolute;
+      inset:-4px;
+      border-radius:31px;
+      border:1.15px solid rgba(101,216,211,.48);
+      opacity:0;
+      z-index:0;
+      pointer-events:none;
+    }
+
+    .signal-one{animation:signalRipple .95s .66s ease-out both}
+    .signal-two{animation:signalRipple .95s .84s ease-out both}
+    .signal-three{animation:signalRipple .95s 1.02s ease-out both}
+
+    .connected-shine{
+      position:absolute;
+      inset:0;
+      border-radius:24px;
+      overflow:hidden;
+      z-index:5;
+      pointer-events:none;
+    }
+
+    .connected-shine::before{
+      content:"";
+      position:absolute;
+      top:-18%;
+      left:-68%;
+      width:36%;
+      height:140%;
+      background:linear-gradient(
+        100deg,
+        transparent 0%,
+        rgba(255,255,255,.08) 24%,
+        rgba(255,255,255,.78) 50%,
+        rgba(255,255,255,.12) 76%,
+        transparent 100%
+      );
+      transform:skewX(-18deg);
+      animation:connectionShine .72s .86s ease-out both;
+    }
+
+    .connected-brand{
+      margin:0 auto 8px;
+      color:var(--teal2);
+      font-size:8.5px;
+      font-weight:900;
+      letter-spacing:.18em;
+      opacity:0;
+      transform:translateY(6px);
+      animation:introTextRise .34s .98s ease forwards;
+    }
+
+    .connected-title{
+      display:block;
+      font-size:18px;
+      font-weight:780;
+      letter-spacing:.012em;
+      line-height:1.18;
+      opacity:0;
+      transform:translateY(8px);
+      animation:introTextRise .38s 1.18s ease forwards;
+    }
+
+    .nextstep-glint{
+      position:relative;
+      display:inline-block;
+      isolation:isolate;
+    }
+
+    .nextstep-glint::after{
+      content:"";
+      position:absolute;
+      top:-14%;
+      left:-62%;
+      width:34%;
+      height:138%;
+      background:linear-gradient(
+        100deg,
+        transparent 0%,
+        rgba(255,255,255,.12) 28%,
+        rgba(255,255,255,.82) 52%,
+        rgba(255,255,255,.14) 76%,
+        transparent 100%
+      );
+      transform:skewX(-18deg);
+      opacity:0;
+      animation:titleGlint .58s 1.56s ease-out both;
+      z-index:2;
+      pointer-events:none;
+    }
+
+    .connected-subtitle{
+      display:block;
+      margin-top:7px;
+      color:rgba(255,255,255,.61);
+      font-size:10.25px;
+      font-weight:500;
+      letter-spacing:.015em;
+      opacity:0;
+      transform:translateY(7px);
+      animation:introTextRise .38s 1.38s ease forwards;
+    }
+
+    .intro-footer{
+      position:absolute;
+      bottom:14px;
+      left:0;
+      width:100%;
+      text-align:center;
+      color:rgba(255,255,255,.32);
+      font-size:8.5px;
+      font-weight:760;
+      letter-spacing:.17em;
+      text-transform:uppercase;
+      opacity:0;
+      animation:introTextRise .34s 1.72s ease forwards;
+      z-index:3;
+      transition:opacity .30s ease;
+    }
+
+
+    .toast{
+      position:fixed;left:50%;bottom:24px;transform:translate(-50%,18px);
+      width:min(calc(100% - 30px),430px);padding:12px 16px;border-radius:14px;color:white;
+      background:rgba(8,27,46,.94);box-shadow:0 16px 40px rgba(0,0,0,.25);
+      text-align:center;font-size:12.5px;font-weight:800;opacity:0;pointer-events:none;
+      transition:opacity .22s ease,transform .22s ease;z-index:120;
+    }
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+
+    @media (hover:hover) and (pointer:fine){
+      .primary:hover{
+        background:linear-gradient(135deg,#0E304B,#1FA6A8);transform:translateY(-3px) scale(1.01);
+        box-shadow:0 18px 36px rgba(11,34,57,.28),0 0 0 3px rgba(31,166,168,.12);
+      }
+      .referral:hover{
+        background:linear-gradient(135deg,#1FA6A8,#65D8D3);color:#073044;transform:translateY(-3px) scale(1.01);
+        box-shadow:0 18px 38px rgba(31,166,168,.34),0 0 0 3px rgba(31,166,168,.12);
+      }
+      .action:hover::after{transform:translateX(130%)}
+      .quick:hover,.mini-btn:hover{
+        transform:translateY(-2px);background:#DFF6F5;border-color:#1FA6A8;color:#0B2239;
+        box-shadow:0 12px 25px rgba(10,39,58,.11),0 0 0 3px rgba(31,166,168,.08);
+      }
+      .partner-link:hover{text-decoration:underline}
+    }
+
+    .primary:active,.primary.is-pressed{
+      background:linear-gradient(135deg,#174B70,#1FA6A8)!important;
+      box-shadow:0 10px 26px rgba(31,166,168,.38),0 0 0 4px rgba(31,166,168,.18)!important;
+      filter:brightness(1.12)!important;
+    }
+    .referral:active,.referral.is-pressed{
+      background:linear-gradient(135deg,#22AFB1,#70DFDB)!important;color:#062C3D!important;
+      box-shadow:0 10px 28px rgba(31,166,168,.40),0 0 0 4px rgba(31,166,168,.18)!important;
+    }
+    .quick:active,.quick.is-pressed,.mini-btn:active,.mini-btn.is-pressed{
+      background:#CFF1EF!important;color:#0B2239!important;border-color:#1FA6A8!important;transform:scale(.96)!important;
+    }
+
+    @keyframes cardIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes floatOrb{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(0,16px,0) scale(1.08)}}
+    @keyframes referralPulse{
+      0%,100%{box-shadow:0 13px 30px rgba(31,166,168,.27),0 0 0 0 rgba(31,166,168,.14)}
+      50%{box-shadow:0 15px 34px rgba(31,166,168,.34),0 0 0 7px rgba(31,166,168,0)}
+    }
+
+
+    @keyframes logoConnectIn{
+      0%{opacity:0;transform:scale(.68)}
+      64%{opacity:1;transform:scale(1.07)}
+      100%{opacity:1;transform:scale(1)}
+    }
+
+    @keyframes signalRipple{
+      0%{opacity:.72;transform:scale(.92)}
+      100%{opacity:0;transform:scale(1.78)}
+    }
+
+    @keyframes connectionShine{
+      0%{left:-68%;opacity:0}
+      18%{opacity:1}
+      100%{left:135%;opacity:0}
+    }
+
+    @keyframes introTextRise{
+      to{opacity:1;transform:translateY(0)}
+    }
+
+
+    @keyframes introBackgroundShift{
+      0%{
+        background:
+          radial-gradient(circle at 50% 42%,rgba(31,166,168,.04) 0%,transparent 28%),
+          linear-gradient(180deg,#05131F 0%,#071A2B 60%,#09243A 100%);
+      }
+      100%{
+        background:
+          radial-gradient(circle at 50% 42%,rgba(31,166,168,.09) 0%,rgba(31,166,168,.035) 16%,transparent 34%),
+          linear-gradient(180deg,#061522 0%,#081B2E 58%,#0B2A42 100%);
+      }
+    }
+
+    @keyframes introProgressAdvanced{
+      0%{transform:scaleX(0);height:1px;filter:brightness(.92);opacity:.74}
+      80%{transform:scaleX(.80);height:1px;filter:brightness(.96);opacity:.82}
+      92%{transform:scaleX(.92);height:2px;filter:brightness(1.08);opacity:.96}
+      100%{transform:scaleX(1);height:3px;filter:brightness(1.30);opacity:1}
+    }
+
+    @keyframes topShimmer{
+      0%{left:-42%;opacity:0}
+      15%{opacity:1}
+      100%{left:100%;opacity:0}
+    }
+
+    @keyframes logoBreath{
+      0%{opacity:.18;transform:scale(.86)}
+      45%{opacity:.48;transform:scale(1.04)}
+      100%{opacity:.30;transform:scale(1)}
+    }
+
+    @keyframes logoSettle{
+      0%{transform:translateY(0)}
+      45%{transform:translateY(-3px)}
+      100%{transform:translateY(0)}
+    }
+
+    @keyframes titleGlint{
+      0%{left:-62%;opacity:0}
+      18%{opacity:1}
+      100%{left:130%;opacity:0}
+    }
+
+
+    @keyframes modalUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+
+    @media (max-width:390px){
+      .identity{gap:10px}
+      .logo-wrap,.portrait-wrap{width:82px;height:82px;border-radius:21px}
+      .quick-grid{gap:7px}
+      .credibility-grid{grid-template-columns:1fr}
+      .qr-panel{align-items:flex-start}
+      .two-col{grid-template-columns:1fr}
+    }
+
+    @media (min-width:600px){
+      body{padding-top:46px}
+      .hero{padding:36px 34px 18px}
+      .section{padding-left:28px;padding-right:28px}
+      .qr-panel,.contact-block{margin-left:28px;margin-right:28px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    }
+  </style>
+  <link rel="preload" href="./ns-logo.PNG" as="image" />
+</head>
+
+<body>
+  <div class="connected-splash" id="connectedSplash" aria-hidden="true">
+    <div class="intro-top-shimmer"></div>
+    <div class="intro-progress"><span></span></div>
+
+    <div class="connected-card">
+      <div class="connected-logo">
+        <span class="signal-ring signal-one"></span>
+        <span class="signal-ring signal-two"></span>
+        <span class="signal-ring signal-three"></span>
+
+        <img
+          src="./ns-logo.PNG"
+          alt="NextStep Senior Living"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+        />
+        <div class="connected-logo-fallback">NS</div>
+        <div class="connected-shine"></div>
+      </div>
+
+      <div class="connected-brand">NEXTSTEP SENIOR LIVING</div>
+      <strong class="connected-title">Connected with <span class="nextstep-glint">NextStep</span></strong>
+      <span class="connected-subtitle">Your senior living connection starts here.</span>
+    </div>
+
+    <div class="intro-footer">Serving Central Illinois</div>
+  </div>
+
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <main class="shell">
+    <section class="card" id="card">
+      <div class="top-line"></div>
+
+      <header class="hero">
+        <div class="identity">
+          <div class="logo-wrap">
+            <img src="ns-logo.PNG" alt="NextStep Senior Living logo" />
+          </div>
+
+          <div class="portrait-wrap">
+            <div class="portrait-fallback">TS</div>
+            <img
+              src="tyler-headshot.jpg"
+              alt="Tyler Stearns"
+              onerror="this.style.display='none';"
+            />
+            <small>Tyler Stearns</small>
+          </div>
+        </div>
+
+        <p class="eyebrow">Senior Living Guidance</p>
+        <h1 class="reveal-step reveal-2">Tyler Stearns</h1>
+        <p class="role">Founder</p>
+        <p class="company">NextStep Senior Living, LLC</p>
+
+        <p class="tagline">Your trusted guide to the right senior living choice.</p>
+
+        <div class="badges">
+          <span class="badge">
+            <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            Independent
+          </span>
+          <span class="badge local">
+            <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 10-8 10S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Serving Central Illinois
+          </span>
+          <span class="badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 1 0 0 7H14a3.5 3.5 0 1 1 0 7H6"/></svg>
+            No cost to families
+          </span>
+        </div>
+      </header>
+
+      <section class="section">
+        <p class="section-label">Start here</p>
+
+        <div class="primary-stack">
+          <a class="action primary" href="tyler-stearns.vcf">
+            <span class="action-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            </span>
+            <span class="action-copy">
+              <span class="action-title">Save Tyler to Contacts</span>
+              <span class="action-sub">Keep my phone, email and website handy</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </a>
+
+          <a class="action referral referral-featured" href="#" id="openReferral">
+            <span class="action-icon">
+              <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+            </span>
+            <span class="action-copy">
+              <span class="action-title">Refer a Family</span>
+              <span class="action-sub">Open a quick referral form</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="section-label">Quick contact</p>
+
+        <div class="quick-grid">
+          <a class="quick" href="tel:+15418917526">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.61 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.28 1.73.49 2.63.61A2 2 0 0 1 22 16.92Z"/></svg>
+            <span>Call</span>
+          </a>
+
+          <a class="quick" href="sms:+15418917526">
+            <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
+            <span>Text</span>
+          </a>
+
+          <a class="quick" href="mailto:info@nextstepseniorlivingsolutions.com">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <span>Email</span>
+          </a>
+
+          <a class="quick" href="https://nextstepseniorlivingsolutions.com/">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            <span>Website</span>
+          </a>
+        </div>
+
+        <div class="credibility">
+          <p class="credibility-title">Why families and professionals connect with NextStep</p>
+          <div class="credibility-grid">
+            <div class="credibility-item">
+              <strong>Personalized</strong>
+              <span>Guidance based on each family’s needs</span>
+            </div>
+            <div class="credibility-item">
+              <strong>Local</strong>
+              <span>Focused on Central Illinois senior living</span>
+            </div>
+            <div class="credibility-item">
+              <strong>Family-first</strong>
+              <span>Placement guidance at no cost to families</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="partner-copy">
+            <p class="partner-title">Healthcare professional?</p>
+            <p class="partner-text">Connect with NextStep about referral and partnership opportunities.</p>
+          </div>
+          <a class="partner-link" href="mailto:info@nextstepseniorlivingsolutions.com?subject=Healthcare%20Professional%20Partnership">Connect →</a>
+        </div>
+
+        <div class="share-row">
+          <button class="mini-btn" type="button" id="shareBtn">
+            <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></svg>
+            Share this page
+          </button>
+
+          <a class="mini-btn" href="https://www.linkedin.com/in/tylerstearns/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a3 3 0 0 1 6 0v4M12 10v7"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </section>
+
+      <section class="qr-panel">
+        <img src="connect-qr.png" alt="QR code for Tyler Stearns' NextStep contact page" />
+        <div class="qr-copy">
+          <h3>Share NextStep</h3>
+          <p>Viewing this on a computer? Scan this code with your phone to open Tyler’s contact page instantly.</p>
+        </div>
+      </section>
+
+      <section class="legal-disclosure">
+        <strong>Service & Compensation Disclosure</strong>
+        <p>
+          NextStep Senior Living does not charge families for placement assistance. NextStep may receive
+          compensation from participating senior living communities when a referred individual moves into a community.
+          Community participation or compensation does not change the cost of NextStep's placement assistance to families.
+        </p>
+        <div class="legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="mailto:info@nextstepseniorlivingsolutions.com?subject=Privacy%20Question">Privacy Questions</a>
+        </div>
+      </section>
+
+      <footer class="contact-block">
+        <p class="contact-name">NextStep Senior Living, LLC</p>
+        <p class="contact-line"><a href="tel:+15418917526">541.891.7526</a></p>
+        <p class="contact-line"><a href="mailto:info@nextstepseniorlivingsolutions.com">info@nextstepseniorlivingsolutions.com</a></p>
+        <p class="contact-line"><a href="https://nextstepseniorlivingsolutions.com/">nextstepseniorlivingsolutions.com</a></p>
+      </footer>
+    </section>
+
+    <p class="footer-note">Personalized senior living guidance • Serving Central Illinois • No cost to families</p>
+  </main>
+
+  <div class="modal-backdrop" id="referralModal" role="dialog" aria-modal="true" aria-labelledby="referralTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-top">
+          <div class="modal-title-wrap">
+            <h2 id="referralTitle">Refer a Family</h2>
+            <p class="modal-sub">Fill out what you know. When you tap submit, your email app will open with the referral already prepared for Tyler.</p>
+          </div>
+          <button class="close-btn" type="button" id="closeReferral" aria-label="Close">×</button>
+        </div>
+      </div>
+
+      <form class="form-body" id="referralForm">
+        <div class="two-col">
+          <div class="field">
+            <label for="familyName">Family / Resident Name</label>
+            <input id="familyName" name="familyName" type="text" placeholder="Name" />
+          </div>
+
+          <div class="field">
+            <label for="referrerName">Your Name</label>
+            <input id="referrerName" name="referrerName" type="text" placeholder="Your name" />
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label for="phone">Best Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="Phone number" />
+          </div>
+
+          <div class="field">
+            <label for="email">Best Email</label>
+            <input id="email" name="email" type="email" placeholder="Email address" />
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label for="careType">Type of Care</label>
+            <select id="careType" name="careType">
+              <option value="">Select</option>
+              <option>Independent Living</option>
+              <option>Assisted Living</option>
+              <option>Memory Care</option>
+              <option>Skilled Nursing / Rehab</option>
+              <option>Not Sure Yet</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="timeframe">Timeframe</label>
+            <select id="timeframe" name="timeframe">
+              <option value="">Select</option>
+              <option>Immediately</option>
+              <option>Within 30 days</option>
+              <option>1–3 months</option>
+              <option>3+ months</option>
+              <option>Just exploring</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="relationship">Relationship to Family / Resident</label>
+          <input id="relationship" name="relationship" type="text" placeholder="Family member, social worker, discharge planner, etc." />
+        </div>
+
+        <div class="field">
+          <label for="notes">General Notes</label>
+          <textarea id="notes" name="notes" placeholder="Location, budget, general preferences, timing, or other non-medical information. Please do not include diagnoses, medications, medical records, insurance numbers, Social Security numbers, or other sensitive health information."></textarea>
+        </div>
+
+        <div class="privacy-box">
+          <strong>Privacy & Referral Notice</strong>
+          <p>
+            Please do not submit medical records, diagnoses, medication information, Social Security numbers,
+            insurance information, or other sensitive health information through this form. NextStep will contact
+            you directly if additional information is needed and will arrange an appropriate method for sharing
+            sensitive information.
+          </p>
+        </div>
+
+        <label class="consent-row">
+          <input type="checkbox" id="authorization" required />
+          <span>
+            I confirm that I am authorized to provide the contact information above and consent to
+            NextStep Senior Living contacting the individual or family regarding senior living services.
+          </span>
+        </label>
+
+        <p class="form-note">
+          This page does not store the information you enter. Submitting prepares an email to NextStep using the
+          email app on your device. Do not use this form for emergencies or to transmit medical records.
+        </p>
+
+        <button class="submit-btn" type="submit">Prepare Referral Email</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const card = document.getElementById('card');
+    const toast = document.getElementById('toast');
+    const modal = document.getElementById('referralModal');
+    const openReferral = document.getElementById('openReferral');
+    const closeReferral = document.getElementById('closeReferral');
+    const form = document.getElementById('referralForm');
+    const splash = document.getElementById('connectedSplash');
+    let toastTimer;
+
+    function showToast(message){
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+
+    // Show the premium intro only once per browsing session.
+    // Returning to this page in the same tab/session skips it completely.
+    window.addEventListener('load', () => {
+      let alreadySeen = false;
+
+      try {
+        alreadySeen = sessionStorage.getItem('nextstepIntroSeen') === '1';
+      } catch (e) {}
+
+      if (alreadySeen) {
+        splash.classList.add('hide');
+        return;
+      }
+
+      // Keep the completed intro frame still, then smoothly crossfade
+      // the entire overlay into the already-rendered contact page.
+      setTimeout(() => {
+        splash.classList.add('crossfade');
+      }, 2180);
+
+      setTimeout(() => {
+        try {
+          sessionStorage.setItem('nextstepIntroSeen', '1');
+        } catch (e) {}
+
+        splash.classList.add('hide');
+      }, 2520);
+    });
+
+    // Remember where a person came from if a source is included in the URL:
+    // Example: connect.html?source=hospital
+    const params = new URLSearchParams(window.location.search);
+    const sourceFromUrl = params.get('source');
+    if(sourceFromUrl){
+      sessionStorage.setItem('nextstepReferralSource', sourceFromUrl);
+    }
+    const referralSource = sessionStorage.getItem('nextstepReferralSource') || 'Direct / NFC card';
+
+    openReferral.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      // Always open each referral at the very top.
+      modal.scrollTop = 0;
+      const modalPanel = modal.querySelector('.modal');
+      if (modalPanel) {
+        modalPanel.scrollTop = 0;
+      }
+
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+
+      // Re-assert top position after the modal is visible.
+      requestAnimationFrame(() => {
+        modal.scrollTop = 0;
+        if (modalPanel) {
+          modalPanel.scrollTop = 0;
+        }
+      });
+    });
+
+    function hideModal(){
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    closeReferral.addEventListener('click', hideModal);
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal) hideModal();
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      const lines = [
+        'Hi Tyler,',
+        '',
+        'I would like to refer a family to NextStep Senior Living.',
+        '',
+        'Family / Resident Name: ' + (data.get('familyName') || ''),
+        'Referrer Name: ' + (data.get('referrerName') || ''),
+        'Best Phone: ' + (data.get('phone') || ''),
+        'Best Email: ' + (data.get('email') || ''),
+        'Type of Care: ' + (data.get('careType') || ''),
+        'Timeframe: ' + (data.get('timeframe') || ''),
+        'Relationship: ' + (data.get('relationship') || ''),
+        '',
+        'Notes:',
+        (data.get('notes') || ''),
+        '',
+        'Referral Source: ' + referralSource,
+        'Authorization Confirmed: Yes'
+      ];
+
+      const subject = encodeURIComponent('New Family Referral');
+      const body = encodeURIComponent(lines.join('\n'));
+
+      // Reset the referral form so each new referral starts fresh
+      // and requires a new privacy/authorization acknowledgment.
+      form.reset();
+
+      // Close the referral form before opening the email app.
+      // This way, when the user returns to the website, they see the main connect page.
+      hideModal();
+
+      // Small delay lets the modal close visually before handing off to Mail.
+      setTimeout(() => {
+        window.location.href = 'mailto:info@nextstepseniorlivingsolutions.com?subject=' + subject + '&body=' + body;
+      }, 180);
+    });
+
+
+    const partnerCard = document.querySelector('.partner-card');
+    if (partnerCard) {
+      partnerCard.setAttribute('role', 'link');
+      partnerCard.setAttribute('tabindex', '0');
+
+      const openPartnerLink = (event) => {
+        if (event && event.target.closest('.partner-link')) return;
+        const link = partnerCard.querySelector('.partner-link');
+        if (link) window.location.href = link.href;
+      };
+
+      partnerCard.addEventListener('click', openPartnerLink);
+      partnerCard.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openPartnerLink(event);
+        }
+      });
+    }
+
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      const data = {
+        title:'Tyler Stearns | NextStep Senior Living',
+        text:'Connect with Tyler at NextStep Senior Living.',
+        url:window.location.href
+      };
+
+      try{
+        if(navigator.share){
+          await navigator.share(data);
+        }else if(navigator.clipboard){
+          await navigator.clipboard.writeText(window.location.href);
+          showToast('Page link copied.');
+        }else{
+          showToast('Copy the page address from your browser.');
+        }
+      }catch(err){
+        if(err && err.name !== 'AbortError') showToast('Unable to share right now.');
+      }
+    });
+
+    document.querySelectorAll('.action,.quick,.mini-btn,.partner-card').forEach(el => {
+      el.addEventListener('touchstart',() => el.classList.add('is-pressed'),{passive:true});
+      const clear = () => setTimeout(() => el.classList.remove('is-pressed'),220);
+      el.addEventListener('touchend',clear,{passive:true});
+      el.addEventListener('touchcancel',clear,{passive:true});
+    });
+
+    // Desktop-only subtle premium tilt/parallax.
+    if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+      card.addEventListener('mousemove',(e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        card.style.transform = `rotateY(${x * 2.3}deg) rotateX(${-y * 2.0}deg) translateY(-1px)`;
+      });
+
+      card.addEventListener('mouseleave',() => {
+        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      });
+    }
+  </script>
+</body>
+</html>
