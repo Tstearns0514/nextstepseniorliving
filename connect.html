@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#081B2E" />
+  <title>Connect with Tyler | NextStep Senior Living</title>
+  <meta name="description" content="Connect with Tyler Stearns, Founder of NextStep Senior Living, LLC." />
+
+  <style>
+    :root {
+      --navy:#081B2E;
+      --navy2:#0E304B;
+      --navy3:#174B70;
+      --teal:#1FA6A8;
+      --teal2:#65D8D3;
+      --teal3:#B9F1EE;
+      --white:#FFFFFF;
+      --ink:#18252F;
+      --muted:#667783;
+      --line:rgba(20,61,88,.12);
+      --soft:#F4F8F9;
+      --shadow:0 30px 80px rgba(1,17,29,.28);
+    }
+
+    * { box-sizing:border-box; }
+
+    html {
+      background:var(--navy);
+      scroll-behavior:smooth;
+    }
+
+    body {
+      margin:0;
+      min-height:100vh;
+      font-family:Aptos,"Segoe UI",Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 15% 8%, rgba(31,166,168,.26), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(96,183,224,.18), transparent 24%),
+        linear-gradient(155deg,#061522 0%,#081B2E 44%,#0E304B 100%);
+      padding:28px 14px 48px;
+      overflow-x:hidden;
+    }
+
+    body::before {
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.45;
+      background:
+        linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+      background-size:36px 36px;
+      mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 75%);
+    }
+
+    .orb {
+      position:fixed;
+      border-radius:50%;
+      filter:blur(70px);
+      opacity:.22;
+      pointer-events:none;
+      animation:floatOrb 9s ease-in-out infinite;
+    }
+
+    .orb.one {
+      width:240px;
+      height:240px;
+      background:var(--teal);
+      top:-80px;
+      right:-80px;
+    }
+
+    .orb.two {
+      width:210px;
+      height:210px;
+      background:#5F9FD0;
+      left:-100px;
+      top:42%;
+      animation-delay:2.5s;
+    }
+
+    .shell {
+      width:min(100%,580px);
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+      perspective:1200px;
+    }
+
+    .card {
+      position:relative;
+      overflow:hidden;
+      border-radius:32px;
+      background:linear-gradient(180deg,rgba(255,255,255,.985),rgba(248,251,252,.965));
+      border:1px solid rgba(255,255,255,.68);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      transform-style:preserve-3d;
+      transition:transform .18s ease, box-shadow .18s ease;
+      animation:cardIn .65s cubic-bezier(.2,.75,.2,1) both;
+    }
+
+    .card::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(135deg,rgba(255,255,255,.45),transparent 28%);
+    }
+
+    .top-line {
+      height:7px;
+      background:linear-gradient(90deg,var(--teal),var(--teal2),#77A9D2,var(--navy3));
+      box-shadow:0 0 22px rgba(31,166,168,.55);
+    }
+
+    .hero {
+      text-align:center;
+      padding:30px 22px 16px;
+      position:relative;
+    }
+
+    .identity {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .logo-wrap, .portrait-wrap {
+      width:94px;
+      height:94px;
+      border-radius:24px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.95);
+      border:1px solid rgba(14,61,84,.10);
+      box-shadow:0 14px 34px rgba(8,34,52,.12);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .logo-wrap {
+      animation:logoIn .72s .06s cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    .logo-wrap::after {
+      content:"";
+      position:absolute;
+      inset:-3px;
+      border-radius:27px;
+      border:2px solid rgba(31,166,168,.16);
+      box-shadow:0 0 22px rgba(31,166,168,.14);
+      pointer-events:none;
+    }
+
+    .logo-wrap img {
+      width:88%;
+      height:88%;
+      object-fit:contain;
+    }
+
+    .portrait-wrap {
+      background:
+        radial-gradient(circle at 35% 28%,rgba(101,216,211,.34),transparent 32%),
+        linear-gradient(145deg,#0E304B,#174B70);
+      color:#fff;
+      font-size:30px;
+      font-weight:900;
+      letter-spacing:-1px;
+    }
+
+    .portrait-wrap small {
+      display:block;
+      position:absolute;
+      bottom:7px;
+      width:100%;
+      text-align:center;
+      font-size:8px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.72);
+    }
+
+    .eyebrow {
+      margin:0 0 8px;
+      color:var(--teal);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:11px;
+      font-weight:900;
+    }
+
+    h1 {
+      margin:0;
+      color:var(--navy);
+      font-size:clamp(31px,9vw,43px);
+      line-height:1;
+      letter-spacing:-1.25px;
+      font-weight:900;
+    }
+
+    .role {
+      margin:8px 0 0;
+      color:var(--navy3);
+      font-size:15px;
+      font-weight:800;
+    }
+
+    .company {
+      margin:3px 0 0;
+      color:var(--ink);
+      font-size:18px;
+      font-weight:900;
+    }
+
+    .tagline {
+      max-width:440px;
+      margin:16px auto 0;
+      color:var(--muted);
+      font-size:15.5px;
+      line-height:1.5;
+    }
+
+    .trustline {
+      max-width:430px;
+      margin:10px auto 0;
+      color:var(--navy);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .badges {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+      margin:18px auto 5px;
+    }
+
+    .badge {
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:8px 11px;
+      border-radius:999px;
+      background:rgba(31,166,168,.085);
+      border:1px solid rgba(31,166,168,.15);
+      color:#167E80;
+      font-size:11.5px;
+      font-weight:850;
+    }
+
+    .badge.local {
+      background:linear-gradient(135deg,#E8F7F7,#F4FBFB);
+      box-shadow:0 6px 18px rgba(31,166,168,.08);
+    }
+
+    .badge svg {
+      width:14px;
+      height:14px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:2.2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .section {
+      padding:10px 20px 0;
+    }
+
+    .section-label {
+      margin:0 0 10px 2px;
+      color:#7A8993;
+      font-size:10.5px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .primary-stack {
+      display:grid;
+      gap:12px;
+    }
+
+    .action {
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      gap:13px;
+      min-height:64px;
+      padding:14px 16px;
+      border-radius:19px;
+      text-decoration:none;
+      border:1px solid transparent;
+      transition:transform .18s ease,filter .18s ease,box-shadow .18s ease,background .18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .action::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(120deg,transparent 24%,rgba(255,255,255,.30) 46%,transparent 67%);
+      transform:translateX(-130%);
+      transition:transform .48s ease;
+    }
+
+    .action-icon {
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      flex:0 0 42px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.14);
+    }
+
+    .action-icon svg, .quick svg, .mini-btn svg, .partner-icon svg {
+      stroke:currentColor;
+      fill:none;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .action-icon svg { width:21px; height:21px; }
+
+    .action-copy {
+      flex:1;
+      min-width:0;
+      text-align:left;
+    }
+
+    .action-title {
+      display:block;
+      font-size:16px;
+      font-weight:900;
+      line-height:1.1;
+    }
+
+    .action-sub {
+      display:block;
+      margin-top:4px;
+      font-size:11.5px;
+      font-weight:650;
+      opacity:.78;
+      line-height:1.25;
+    }
+
+    .chev {
+      width:22px;
+      height:22px;
+      opacity:.76;
+      flex:0 0 22px;
+    }
+
+    .primary {
+      color:white;
+      background:linear-gradient(135deg,#081B2E,#174B70);
+      box-shadow:
+        0 13px 28px rgba(11,34,57,.23),
+        0 0 22px rgba(31,166,168,.08);
+    }
+
+    .referral {
+      color:white;
+      background:linear-gradient(135deg,#137B7D,#22B2B4);
+      box-shadow:
+        0 13px 30px rgba(31,166,168,.30),
+        0 0 22px rgba(31,166,168,.16);
+    }
+
+    .quick-grid {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:9px;
+    }
+
+    .quick {
+      min-height:84px;
+      padding:12px 7px;
+      border-radius:17px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.84);
+      color:var(--navy);
+      text-decoration:none;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      box-shadow:0 7px 18px rgba(10,39,58,.06);
+      transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease,color .18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .quick svg { width:21px; height:21px; }
+    .quick span { font-size:11px; font-weight:850; }
+
+    .credibility {
+      margin-top:14px;
+      padding:16px;
+      border-radius:18px;
+      background:linear-gradient(145deg,#F3F9F9,#FAFCFC);
+      border:1px solid rgba(31,166,168,.12);
+    }
+
+    .credibility-title {
+      margin:0 0 10px;
+      color:var(--navy);
+      font-size:13px;
+      font-weight:900;
+      text-align:center;
+    }
+
+    .credibility-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:8px;
+    }
+
+    .credibility-item {
+      padding:10px 7px;
+      border-radius:14px;
+      background:white;
+      text-align:center;
+      border:1px solid var(--line);
+    }
+
+    .credibility-item strong {
+      display:block;
+      color:var(--teal);
+      font-size:12px;
+      margin-bottom:3px;
+    }
+
+    .credibility-item span {
+      color:var(--muted);
+      font-size:9.5px;
+      line-height:1.3;
+    }
+
+    .partner-card {
+      margin-top:14px;
+      padding:17px;
+      border-radius:19px;
+      background:
+        radial-gradient(circle at 90% 20%,rgba(31,166,168,.16),transparent 36%),
+        linear-gradient(145deg,#EEF7F7,#F8FBFB);
+      border:1px solid rgba(31,166,168,.16);
+      display:flex;
+      align-items:center;
+      gap:13px;
+    }
+
+    .partner-icon {
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      flex:0 0 44px;
+      display:grid;
+      place-items:center;
+      background:white;
+      color:var(--teal);
+      box-shadow:0 7px 18px rgba(10,39,58,.08);
+    }
+
+    .partner-icon svg { width:22px; height:22px; }
+
+    .partner-copy {
+      flex:1;
+      min-width:0;
+    }
+
+    .partner-title {
+      margin:0 0 3px;
+      color:var(--navy);
+      font-weight:900;
+      font-size:14px;
+    }
+
+    .partner-text {
+      margin:0;
+      color:var(--muted);
+      font-size:11.5px;
+      line-height:1.4;
+    }
+
+    .partner-link {
+      white-space:nowrap;
+      color:var(--teal);
+      text-decoration:none;
+      font-size:12px;
+      font-weight:900;
+    }
+
+    .share-row {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:13px;
+    }
+
+    .mini-btn {
+      min-height:48px;
+      border-radius:15px;
+      border:1px solid var(--line);
+      background:white;
+      color:var(--navy);
+      text-decoration:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-size:12px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 6px 16px rgba(10,39,58,.05);
+      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease,color .18s ease;
+      font-family:inherit;
+    }
+
+    .mini-btn svg { width:17px; height:17px; }
+
+    .qr-panel {
+      margin:14px 20px 0;
+      padding:18px;
+      border-radius:20px;
+      background:linear-gradient(145deg,#0A2439,#123A59);
+      color:white;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      box-shadow:0 16px 34px rgba(8,34,52,.16);
+    }
+
+    .qr-panel img {
+      width:96px;
+      height:96px;
+      border-radius:14px;
+      background:white;
+      padding:6px;
+      flex:0 0 96px;
+    }
+
+    .qr-copy h3 {
+      margin:0 0 5px;
+      font-size:14px;
+      font-weight:900;
+    }
+
+    .qr-copy p {
+      margin:0;
+      color:rgba(255,255,255,.74);
+      font-size:11px;
+      line-height:1.4;
+    }
+
+    .contact-block {
+      margin:22px 20px 0;
+      padding:18px 0 21px;
+      border-top:1px solid var(--line);
+      text-align:center;
+    }
+
+    .contact-name {
+      margin:0 0 8px;
+      color:var(--navy);
+      font-size:13px;
+      font-weight:900;
+    }
+
+    .contact-line {
+      margin:4px 0;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.4;
+      overflow-wrap:anywhere;
+    }
+
+    .contact-line a {
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .footer-note {
+      margin:18px 12px 0;
+      color:rgba(255,255,255,.72);
+      font-size:11px;
+      line-height:1.45;
+      text-align:center;
+    }
+
+    .toast {
+      position:fixed;
+      left:50%;
+      bottom:24px;
+      transform:translate(-50%,18px);
+      width:min(calc(100% - 30px),430px);
+      padding:12px 16px;
+      border-radius:14px;
+      color:white;
+      background:rgba(8,27,46,.94);
+      box-shadow:0 16px 40px rgba(0,0,0,.25);
+      text-align:center;
+      font-size:12.5px;
+      font-weight:800;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .22s ease,transform .22s ease;
+      z-index:30;
+    }
+
+    .toast.show {
+      opacity:1;
+      transform:translate(-50%,0);
+    }
+
+    @media (hover:hover) and (pointer:fine) {
+      .primary:hover {
+        background:linear-gradient(135deg,#0E304B,#1FA6A8);
+        transform:translateY(-3px) scale(1.01);
+        box-shadow:0 18px 36px rgba(11,34,57,.28),0 0 0 3px rgba(31,166,168,.12);
+      }
+
+      .referral:hover {
+        background:linear-gradient(135deg,#1FA6A8,#65D8D3);
+        color:#073044;
+        transform:translateY(-3px) scale(1.01);
+        box-shadow:0 18px 38px rgba(31,166,168,.34),0 0 0 3px rgba(31,166,168,.12);
+      }
+
+      .action:hover::after {
+        transform:translateX(130%);
+      }
+
+      .quick:hover, .mini-btn:hover {
+        transform:translateY(-2px);
+        background:#DFF6F5;
+        border-color:#1FA6A8;
+        color:#0B2239;
+        box-shadow:0 12px 25px rgba(10,39,58,.11),0 0 0 3px rgba(31,166,168,.08);
+      }
+
+      .partner-link:hover { text-decoration:underline; }
+    }
+
+    .primary:active, .primary.is-pressed {
+      background:linear-gradient(135deg,#174B70,#1FA6A8) !important;
+      box-shadow:0 10px 26px rgba(31,166,168,.38),0 0 0 4px rgba(31,166,168,.18) !important;
+      filter:brightness(1.12) !important;
+    }
+
+    .referral:active, .referral.is-pressed {
+      background:linear-gradient(135deg,#22AFB1,#70DFDB) !important;
+      color:#062C3D !important;
+      box-shadow:0 10px 28px rgba(31,166,168,.40),0 0 0 4px rgba(31,166,168,.18) !important;
+    }
+
+    .quick:active, .quick.is-pressed, .mini-btn:active, .mini-btn.is-pressed {
+      background:#CFF1EF !important;
+      color:#0B2239 !important;
+      border-color:#1FA6A8 !important;
+      transform:scale(.96) !important;
+    }
+
+    @keyframes cardIn {
+      from { opacity:0; transform:translateY(18px) scale(.985); }
+      to { opacity:1; transform:translateY(0) scale(1); }
+    }
+
+    @keyframes logoIn {
+      from { opacity:0; transform:translateY(10px) scale(.88); }
+      to { opacity:1; transform:translateY(0) scale(1); }
+    }
+
+    @keyframes floatOrb {
+      0%,100% { transform:translate3d(0,0,0) scale(1); }
+      50% { transform:translate3d(0,16px,0) scale(1.08); }
+    }
+
+    @media (max-width:390px) {
+      .identity { gap:10px; }
+      .logo-wrap, .portrait-wrap { width:82px; height:82px; border-radius:21px; }
+      .quick-grid { gap:7px; }
+      .credibility-grid { grid-template-columns:1fr; }
+      .qr-panel { align-items:flex-start; }
+    }
+
+    @media (min-width:600px) {
+      body { padding-top:46px; }
+      .hero { padding:36px 34px 18px; }
+      .section { padding-left:28px; padding-right:28px; }
+      .qr-panel, .contact-block { margin-left:28px; margin-right:28px; }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      *,*::before,*::after {
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <main class="shell">
+    <section class="card" id="card">
+      <div class="top-line"></div>
+
+      <header class="hero">
+        <div class="identity">
+          <div class="logo-wrap">
+            <img src="ns-logo.PNG" alt="NextStep Senior Living logo" />
+          </div>
+
+          <div class="portrait-wrap" aria-label="Tyler Stearns profile placeholder">
+            TS
+            <small>Add Headshot</small>
+          </div>
+        </div>
+
+        <p class="eyebrow">Senior Living Guidance</p>
+        <h1>Tyler Stearns</h1>
+        <p class="role">Founder</p>
+        <p class="company">NextStep Senior Living, LLC</p>
+
+        <p class="tagline">
+          Your trusted guide to the right senior living choice.
+        </p>
+
+        <div class="badges">
+          <span class="badge">
+            <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            Independent
+          </span>
+
+          <span class="badge local">
+            <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 10-8 10S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Serving Central Illinois
+          </span>
+
+          <span class="badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 1 0 0 7H14a3.5 3.5 0 1 1 0 7H6"/></svg>
+            No cost to families
+          </span>
+        </div>
+      </header>
+
+      <section class="section">
+        <p class="section-label">Start here</p>
+
+        <div class="primary-stack">
+          <a class="action primary" href="tyler-stearns.vcf">
+            <span class="action-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            </span>
+            <span class="action-copy">
+              <span class="action-title">Save Tyler to Contacts</span>
+              <span class="action-sub">Keep my phone, email and website handy</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </a>
+
+          <a class="action referral"
+             href="mailto:info@nextstepseniorlivingsolutions.com?subject=New%20Family%20Referral&body=Hi%20Tyler%2C%0A%0AI%20would%20like%20to%20refer%20a%20family%20to%20NextStep.%0A%0AFamily%20Name%3A%0ABest%20Phone%3A%0ABest%20Email%3A%0AWhat%20are%20they%20looking%20for%3F%3A%0A%0AThank%20you.">
+            <span class="action-icon">
+              <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+            </span>
+            <span class="action-copy">
+              <span class="action-title">Refer a Family</span>
+              <span class="action-sub">Start a referral in seconds</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="section-label">Quick contact</p>
+
+        <div class="quick-grid">
+          <a class="quick" href="tel:+15418917526">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.61 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.28 1.73.49 2.63.61A2 2 0 0 1 22 16.92Z"/></svg>
+            <span>Call</span>
+          </a>
+
+          <a class="quick" href="sms:+15418917526">
+            <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
+            <span>Text</span>
+          </a>
+
+          <a class="quick" href="mailto:info@nextstepseniorlivingsolutions.com">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <span>Email</span>
+          </a>
+
+          <a class="quick" href="https://nextstepseniorlivingsolutions.com/">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            <span>Website</span>
+          </a>
+        </div>
+
+        <div class="credibility">
+          <p class="credibility-title">Why families and professionals connect with NextStep</p>
+          <div class="credibility-grid">
+            <div class="credibility-item">
+              <strong>Personalized</strong>
+              <span>Guidance based on each family’s needs</span>
+            </div>
+            <div class="credibility-item">
+              <strong>Local</strong>
+              <span>Focused on Central Illinois senior living</span>
+            </div>
+            <div class="credibility-item">
+              <strong>Family-first</strong>
+              <span>Placement guidance at no cost to families</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="partner-copy">
+            <p class="partner-title">Healthcare professional?</p>
+            <p class="partner-text">Connect with NextStep about referral and partnership opportunities.</p>
+          </div>
+          <a class="partner-link"
+             href="mailto:info@nextstepseniorlivingsolutions.com?subject=Healthcare%20Professional%20Partnership">
+             Connect →
+          </a>
+        </div>
+
+        <div class="share-row">
+          <button class="mini-btn" type="button" id="shareBtn">
+            <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></svg>
+            Share this page
+          </button>
+
+          <a class="mini-btn" href="https://www.linkedin.com/in/tylerstearns/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a3 3 0 0 1 6 0v4M12 10v7"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </section>
+
+      <section class="qr-panel">
+        <img src="connect-qr.png" alt="QR code for Tyler Stearns' NextStep contact page" />
+        <div class="qr-copy">
+          <h3>Share NextStep</h3>
+          <p>Viewing this on a computer? Scan this code with your phone to open Tyler’s contact page instantly.</p>
+        </div>
+      </section>
+
+      <footer class="contact-block">
+        <p class="contact-name">NextStep Senior Living, LLC</p>
+        <p class="contact-line"><a href="tel:+15418917526">541.891.7526</a></p>
+        <p class="contact-line"><a href="mailto:info@nextstepseniorlivingsolutions.com">info@nextstepseniorlivingsolutions.com</a></p>
+        <p class="contact-line"><a href="https://nextstepseniorlivingsolutions.com/">nextstepseniorlivingsolutions.com</a></p>
+      </footer>
+    </section>
+
+    <p class="footer-note">Personalized senior living guidance • Serving Central Illinois • No cost to families</p>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const card = document.getElementById('card');
+    const toast = document.getElementById('toast');
+    let toastTimer;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      const data = {
+        title:'Tyler Stearns | NextStep Senior Living',
+        text:'Connect with Tyler at NextStep Senior Living.',
+        url:window.location.href
+      };
+
+      try {
+        if (navigator.share) {
+          await navigator.share(data);
+        } else if (navigator.clipboard) {
+          await navigator.clipboard.writeText(window.location.href);
+          showToast('Page link copied.');
+        } else {
+          showToast('Copy the page address from your browser.');
+        }
+      } catch (err) {
+        if (err && err.name !== 'AbortError') showToast('Unable to share right now.');
+      }
+    });
+
+    document.querySelectorAll('.action,.quick,.mini-btn').forEach(el => {
+      el.addEventListener('touchstart',() => el.classList.add('is-pressed'),{passive:true});
+      const clear = () => setTimeout(() => el.classList.remove('is-pressed'),220);
+      el.addEventListener('touchend',clear,{passive:true});
+      el.addEventListener('touchcancel',clear,{passive:true});
+    });
+
+    // Desktop-only subtle premium tilt/parallax.
+    if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        card.style.transform = `rotateY(${x * 2.3}deg) rotateX(${-y * 2.0}deg) translateY(-1px)`;
+        card.style.boxShadow = `${-x*8}px ${18+y*8}px 80px rgba(1,17,29,.30)`;
+      });
+
+      card.addEventListener('mouseleave',() => {
+        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+        card.style.boxShadow = '0 30px 80px rgba(1,17,29,.28)';
+      });
+    }
+  </script>
+</body>
+</html>
