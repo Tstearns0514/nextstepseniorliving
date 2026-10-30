@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service & Compensation Disclosure | NextStep Senior Living</title>
+  <meta name="description" content="Service and compensation disclosure for NextStep Senior Living, LLC.">
+  <meta name="theme-color" content="#081B2E">
+  <link rel="icon" href="./ns-logo.PNG">
+  <style>
+
+
+:root{
+  --navy:#081B2E;
+  --navy-dark:#061522;
+  --navy-mid:#0E304B;
+  --navy-light:#174B70;
+  --teal:#1FA6A8;
+  --teal-dark:#167E80;
+  --teal-light:#65D8D3;
+  --teal-pale:#E8F7F7;
+  --bg:#F3F8F9;
+  --white:#FFFFFF;
+  --text:#1D2B35;
+  --soft:#647580;
+  --border:rgba(14,48,75,.12);
+  --shadow:0 14px 36px rgba(8,27,46,.09);
+  --shadow-lg:0 22px 58px rgba(8,27,46,.16);
+  --radius:18px;
+  --max:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:102px}
+body{
+  margin:0;
+  font-family:"Aptos","Segoe UI",Arial,sans-serif;
+  color:var(--text);
+  line-height:1.6;
+  background:var(--bg);
+}
+body.menu-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid rgba(31,166,168,.38);outline-offset:3px;border-radius:8px}
+.shell{width:min(calc(100% - 40px),var(--max));margin:auto}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--teal-light);font-size:12px;font-weight:900;
+  letter-spacing:.85px;text-transform:uppercase;
+}
+.eyebrow.dark{color:var(--teal-dark)}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+h1,h2,h3{line-height:1.12;letter-spacing:-.8px}
+h1{font-size:clamp(42px,6vw,68px);margin:14px 0 20px}
+h2{font-size:clamp(32px,4vw,46px);margin:0 0 14px}
+h3{font-size:22px;margin:0 0 10px}
+.lead{font-size:19px;color:#D2E1E5;max-width:720px;margin:0}
+.section-lead{font-size:17px;color:var(--soft);max-width:760px;margin:0}
+.section-head{margin-bottom:34px}
+.section-head.center{text-align:center}
+.section-head.center .section-lead{margin-inline:auto}
+
+/* HEADER */
+.site-header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+.nav{
+  width:min(calc(100% - 36px),var(--max));margin:auto;
+  min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand{display:flex;align-items:center;gap:13px;min-width:max-content}
+.brand-logo{height:68px;width:auto;object-fit:contain}
+.brand-name{font-size:20px;font-weight:900;color:var(--navy);line-height:1.1}
+.brand-sub{font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--soft);margin-top:4px}
+.nav-main{display:flex;align-items:center;gap:10px}
+.nav-main>a,.nav-dropdown>summary{
+  list-style:none;border-radius:9px;padding:9px 10px;color:#40535D;
+  font-size:14px;font-weight:750;transition:.18s ease;cursor:pointer;
+}
+.nav-dropdown>summary::-webkit-details-marker{display:none}
+.nav-main>a:hover,.nav-dropdown>summary:hover,.nav-main>a.active{
+  background:var(--teal-pale);color:var(--teal-dark)
+}
+.nav-connect{
+  background:linear-gradient(135deg,var(--navy),var(--navy-light))!important;
+  color:white!important;padding:10px 16px!important;
+  box-shadow:0 9px 22px rgba(8,27,46,.16)
+}
+.nav-connect:hover{filter:brightness(1.08)}
+.nav-dropdown{position:relative}
+.dropdown-menu{
+  position:absolute;top:calc(100% + 9px);left:0;min-width:235px;
+  padding:8px;background:white;border:1px solid var(--border);border-radius:13px;
+  box-shadow:var(--shadow-lg);display:grid;gap:3px;z-index:1002
+}
+.nav-dropdown:not([open]) .dropdown-menu{display:none}
+.dropdown-menu a{padding:10px 11px;border-radius:8px;font-size:13px;font-weight:700;color:#4D606A}
+.dropdown-menu a:hover{background:var(--teal-pale);color:var(--teal-dark)}
+.menu-toggle{
+  display:none;width:44px;height:44px;border:1px solid var(--border);
+  background:white;border-radius:11px;color:var(--navy);font-size:23px
+}
+
+/* BUTTONS / INTERACTIONS */
+.btn{
+  position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 19px;border-radius:11px;border:1px solid transparent;
+  font-weight:850;transition:.18s ease;-webkit-tap-highlight-color:transparent
+}
+.btn::after,.clickable::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.24) 47%,transparent 67%);
+  transform:translateX(-135%);transition:transform .48s ease
+}
+.btn-primary{
+  color:white;background:linear-gradient(135deg,var(--navy),var(--navy-light));
+  box-shadow:0 11px 25px rgba(8,27,46,.2)
+}
+.btn-teal{
+  color:white;background:linear-gradient(135deg,#137B7D,#22B2B4);
+  box-shadow:0 11px 25px rgba(31,166,168,.2)
+}
+.btn-light{color:var(--navy);background:white;border-color:rgba(255,255,255,.7)}
+.btn-outline{color:var(--navy);background:transparent;border-color:#AFC7CE}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn:hover::after,.clickable:hover::after{transform:translateX(135%)}
+.btn:active,.btn.is-pressed,.clickable:active,.clickable.is-pressed{transform:scale(.98);filter:brightness(1.06)}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* HEROES */
+.hero{
+  color:white;
+  background:
+    radial-gradient(circle at 88% 10%,rgba(101,216,211,.15),transparent 29%),
+    radial-gradient(circle at 10% 90%,rgba(74,130,175,.12),transparent 28%),
+    linear-gradient(145deg,var(--navy-dark),var(--navy) 58%,var(--navy-mid));
+  padding:82px 0;
+}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:58px;align-items:center}
+.hero .actions{margin-top:28px}
+.trust-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.trust{
+  padding:7px 10px;border:1px solid rgba(101,216,211,.17);
+  border-radius:999px;background:rgba(255,255,255,.06);color:#D5E5E8;
+  font-size:11px;font-weight:800
+}
+.hero-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.06));
+  border:1px solid rgba(101,216,211,.18);border-radius:23px;padding:30px;
+  box-shadow:0 24px 60px rgba(0,0,0,.17)
+}
+.hero-card h2{font-size:28px;color:white}
+.hero-card p{color:#CADCE0}
+.hero-list{display:grid;gap:12px;margin-top:20px}
+.hero-list>div{display:flex;gap:10px;padding-top:12px;border-top:1px solid rgba(255,255,255,.09)}
+.check{
+  width:25px;height:25px;border-radius:50%;flex:0 0 25px;
+  background:rgba(101,216,211,.13);color:var(--teal-light);
+  display:flex;align-items:center;justify-content:center;font-weight:900
+}
+.hero-list strong{display:block;color:white;font-size:14px}
+.hero-list span{display:block;color:#BFD1D6;font-size:12px}
+
+/* STANDARD SECTIONS */
+.section{padding:82px 0}
+.section-light{background:linear-gradient(180deg,#F8FBFC,#EEF5F7)}
+.section-white{background:white}
+.section-tint{
+  background:
+    radial-gradient(circle at 92% 10%,rgba(31,166,168,.09),transparent 28%),
+    linear-gradient(145deg,#E9F4F6,#DDECF0)
+}
+.section-dark{
+  color:white;
+  background:radial-gradient(circle at 88% 10%,rgba(31,166,168,.13),transparent 28%),
+  linear-gradient(145deg,var(--navy-dark),var(--navy-mid))
+}
+.section-dark .section-lead{color:#C6D8DD}
+.section-dark h2,.section-dark h3{color:white}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{
+  position:relative;overflow:hidden;
+  background:linear-gradient(145deg,#fff,#F7FBFC);
+  border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)
+}
+.card.clickable{transition:.18s ease}
+.card.clickable:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(31,166,168,.3)}
+.card-number{color:var(--teal);font-size:12px;font-weight:900;letter-spacing:.7px;margin-bottom:12px}
+.card h3{color:var(--navy)}
+.card p{color:var(--soft);margin:0 0 16px}
+.more{color:var(--teal-dark);font-weight:900;font-size:13px}
+.icon-box{
+  width:50px;height:50px;border-radius:14px;background:var(--teal-pale);color:var(--teal-dark);
+  display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:900;margin-bottom:18px
+}
+
+/* PROCESS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}
+.step{
+  border:1px solid rgba(101,216,211,.15);background:rgba(255,255,255,.065);
+  border-radius:16px;padding:28px
+}
+.step-num{color:var(--teal-light);font-size:34px;font-weight:900;margin-bottom:15px}
+.step p{color:#C6D8DD;margin:0}
+
+/* FEATURE SPLIT */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+.feature-panel{
+  background:linear-gradient(145deg,var(--navy),var(--navy-mid));color:white;
+  padding:36px;border-radius:22px;box-shadow:var(--shadow-lg)
+}
+.feature-panel p{color:#C9DBDF}
+.feature-list{display:grid;gap:12px;margin-top:22px}
+.feature-list div{display:flex;gap:10px;color:#D8E5E8;font-size:14px}
+.feature-list b{color:var(--teal-light)}
+
+/* CONTENT / EDUCATION */
+.bullet-list{display:grid;gap:11px;margin:22px 0 0;padding:0;list-style:none}
+.bullet-list li{display:flex;gap:10px;color:var(--soft)}
+.bullet-list li::before{content:"✓";color:var(--teal);font-weight:900}
+.question-list{display:grid;gap:10px;margin-top:22px}
+.question{padding:13px 14px;border-radius:11px;background:var(--teal-pale);color:var(--navy);font-weight:750}
+
+/* RESOURCE CARDS */
+.resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.resource-card{
+  position:relative;overflow:hidden;padding:24px;border-radius:16px;background:white;border:1px solid var(--border);
+  box-shadow:0 10px 26px rgba(8,27,46,.07);transition:.18s ease
+}
+.resource-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(31,166,168,.28)}
+.resource-card small{display:block;color:var(--teal-dark);font-weight:900;text-transform:uppercase;letter-spacing:.7px;margin-bottom:7px}
+.resource-card strong{display:block;color:var(--navy);font-size:17px;line-height:1.25}
+.resource-card p{color:var(--soft);font-size:13px;margin:8px 0 12px}
+
+/* CONTACT CTA */
+.contact{
+  padding:74px 0;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(31,166,168,.13),transparent 35%),
+    linear-gradient(145deg,var(--navy-dark),var(--navy-mid));
+  color:white
+}
+.contact .section-head{text-align:center}
+.contact .section-lead{color:#C7D9DD;margin-inline:auto}
+.contact-grid{max-width:840px;margin:30px auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.contact-card{
+  position:relative;overflow:hidden;min-height:105px;padding:18px;border-radius:14px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.075);border:1px solid rgba(101,216,211,.17);transition:.18s ease
+}
+.contact-card.wide{grid-column:1/-1}
+.contact-card[href]:hover{transform:translateY(-3px);background:rgba(255,255,255,.12);border-color:rgba(101,216,211,.35)}
+.contact-card small{color:var(--teal-light);font-weight:900;text-transform:uppercase;letter-spacing:.7px}
+.contact-card strong{font-size:17px;margin-top:3px}
+.contact-card span{color:#C3D5DA;font-size:11px;margin-top:3px}
+
+/* FOOTER */
+footer{background:#04111C;color:#AFC1C7;padding:34px 0 90px}
+.footer-grid{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:start}
+.footer-brand{color:white;font-weight:900}
+.footer-note{font-size:11px;line-height:1.55;max-width:760px;margin-top:8px}
+.footer-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-end;font-size:12px}
+.footer-links a:hover{color:var(--teal-light)}
+.copyright{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.08);padding-top:17px;font-size:11px}
+
+/* REFERRAL MODAL */
+.modal-backdrop{
+  position:fixed;inset:0;z-index:3000;display:none;align-items:flex-start;justify-content:center;
+  overflow:auto;background:rgba(3,16,27,.78);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  padding:calc(env(safe-area-inset-top,0px) + 14px) 14px calc(env(safe-area-inset-bottom,0px) + 18px)
+}
+.modal-backdrop.show{display:flex}
+.modal{
+  width:min(100%,590px);max-height:calc(100dvh - 32px);overflow:auto;background:white;border-radius:22px;
+  box-shadow:0 34px 90px rgba(0,0,0,.34)
+}
+.modal-head{
+  position:sticky;top:0;z-index:2;background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--border);padding:19px 20px 14px;display:flex;gap:12px
+}
+.modal-head>div{flex:1}
+.modal-head h2{font-size:24px;color:var(--navy);margin:0}
+.modal-head p{font-size:11px;color:var(--soft);margin:5px 0 0}
+.modal-close{
+  width:38px;height:38px;border:0;border-radius:11px;background:var(--teal-pale);color:var(--navy);font-size:21px
+}
+.form{padding:18px 20px 22px}
+.field{margin-bottom:12px}
+.field label{display:block;color:var(--navy);font-size:11px;font-weight:900;margin-bottom:5px}
+.field input,.field select,.field textarea{
+  width:100%;border:1px solid #D7E3E7;border-radius:12px;background:#FAFCFD;padding:12px;color:var(--text)
+}
+.field textarea{min-height:88px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(31,166,168,.09);background:white}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.notice{padding:12px 13px;background:var(--teal-pale);border:1px solid #CBE7E6;border-radius:12px;color:#46636B;font-size:10.5px;line-height:1.45;margin-bottom:12px}
+.consent{display:flex;gap:9px;align-items:flex-start;padding:12px;border:1px solid var(--border);border-radius:12px;background:#F6FAFB;font-size:10.5px;color:#52636B;margin-bottom:12px}
+.consent input{width:18px;height:18px;accent-color:var(--teal);flex:0 0 18px}
+.form-note{font-size:10px;color:#75858C}
+.submit{width:100%;border:0}
+
+/* MOBILE BAR */
+.mobile-bar{
+  display:none;position:fixed;left:10px;right:10px;bottom:calc(9px + env(safe-area-inset-bottom));
+  z-index:1500;padding:7px;background:rgba(255,255,255,.96);border:1px solid var(--border);border-radius:14px;
+  box-shadow:0 16px 38px rgba(8,27,46,.2);grid-template-columns:repeat(3,1fr);gap:7px
+}
+.mobile-bar a,.mobile-bar button{
+  border:0;min-height:45px;border-radius:9px;background:var(--teal-pale);color:var(--navy);font-weight:850;font-size:12px
+}
+.mobile-bar .refer{background:linear-gradient(135deg,#137B7D,#22B2B4);color:white}
+
+/* ABOUT PHOTO */
+.photo{
+  min-height:430px;border-radius:22px;overflow:hidden;position:relative;
+  background:linear-gradient(145deg,var(--navy),var(--navy-mid));box-shadow:var(--shadow-lg)
+}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-fallback{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;
+  color:white;text-align:center
+}
+.photo-fallback b{font-size:60px}
+.photo-fallback span{color:#BCD0D6}
+
+/* FAQ */
+.faq{display:grid;gap:10px;margin-top:30px;max-width:880px}
+.faq details{background:white;border:1px solid var(--border);border-radius:13px;padding:0 18px}
+.faq summary{list-style:none;padding:17px 0;color:var(--navy);font-weight:850;cursor:pointer}
+.faq summary::-webkit-details-marker{display:none}
+.faq p{color:var(--soft);margin:0;padding:0 0 17px}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  .hero-grid,.split{grid-template-columns:1fr}
+  .grid-3,.resource-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-main{
+    display:none;position:absolute;top:88px;left:0;right:0;background:white;border-bottom:1px solid var(--border);
+    box-shadow:var(--shadow-lg);padding:12px 20px 20px;flex-direction:column;align-items:stretch;gap:3px;max-height:calc(100dvh - 88px);overflow:auto
+  }
+  .nav-main.open{display:flex}
+  .menu-toggle{display:block}
+  .nav-main>a,.nav-dropdown>summary{padding:11px 10px}
+  .nav-dropdown{width:100%}
+  .dropdown-menu{position:static;box-shadow:none;border:0;padding:4px 0 4px 14px;min-width:0}
+  .nav-dropdown:not([open]) .dropdown-menu{display:none}
+}
+@media(max-width:700px){
+  .shell{width:min(calc(100% - 34px),var(--max))}
+  .nav{min-height:78px}
+  .brand-logo{height:58px}
+  .brand-name{font-size:17px}
+  .brand-sub{display:none}
+  .nav-main{top:78px;max-height:calc(100dvh - 78px)}
+  .hero{padding:64px 0}
+  h1{font-size:42px;letter-spacing:-1.3px}
+  .section{padding:64px 0}
+  .grid-3,.grid-2,.resource-grid,.steps{grid-template-columns:1fr}
+  .actions{flex-direction:column}
+  .actions .btn{width:100%}
+  .contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact-card{padding:16px 10px}
+  .contact-card strong{font-size:14px;overflow-wrap:anywhere}
+  .two{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;text-align:center}
+  .footer-links{justify-content:center}
+  .mobile-bar{display:grid}
+  footer{padding-bottom:92px}
+}
+@media(max-width:430px){
+  .hero-card{padding:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+
+
+/* Alignment fix: center numbers and checkmarks perfectly */
+.check,
+.hero-list .check,
+.step-num {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  line-height: 1 !important;
+}
+
+.check,
+.hero-list .check {
+  width: 25px !important;
+  height: 25px !important;
+  min-width: 25px !important;
+  flex: 0 0 25px !important;
+  padding: 0 !important;
+}
+
+.step-num {
+  width: 100% !important;
+}
+
+
+/* Final hero circle alignment fix */
+.hero-list .check {
+  width: 25px !important;
+  height: 25px !important;
+  min-width: 25px !important;
+  flex: 0 0 25px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  line-height: 25px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  vertical-align: middle !important;
+}
+
+
+/* Site-wide mobile action bar alignment */
+.mobile-bar a,
+.mobile-bar button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 0 8px !important;
+  line-height: 1 !important;
+}
+
+
+/* FINAL HOMEPAGE MOBILE BAR CENTERING */
+@media (max-width: 700px) {
+  .mobile-bar > a,
+  .mobile-bar > button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    height: 45px !important;
+    min-height: 45px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+  }
+
+  .mobile-bar > a {
+    text-indent: 0 !important;
+  }
+}
+
+
+/* Start Here homepage additions */
+.home-start-here-link{
+  text-align:center;
+  margin:28px auto 0;
+}
+.home-start-here-link a{
+  color:var(--teal-dark);
+  font-weight:850;
+  font-size:14px;
+}
+.home-start-here-link a:hover{
+  color:var(--navy);
+}
+@media(max-width:700px){
+  .hero-actions,
+  .actions{
+    flex-wrap:wrap;
+  }
+}
+
+
+/* Stronger visibility for Start Here on dark homepage hero */
+.btn-start-here{
+  color:#FFFFFF;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(101,216,211,.62);
+  box-shadow:inset 0 0 0 1px rgba(101,216,211,.08);
+}
+.btn-start-here:hover{
+  color:#FFFFFF;
+  background:rgba(255,255,255,.16);
+  border-color:var(--teal-light);
+}
+.home-start-here-link a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#FFFFFF !important;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(101,216,211,.34);
+  border-radius:999px;
+  padding:10px 16px;
+}
+.home-start-here-link a:hover{
+  color:#FFFFFF !important;
+  background:rgba(255,255,255,.14);
+  border-color:rgba(101,216,211,.58);
+}
+
+
+/* Refined Start Here emphasis */
+.btn-start-here{
+  color:#FFFFFF;
+  background:rgba(31,166,168,.22);
+  border:1px solid rgba(101,216,211,.70);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.03),
+    0 6px 16px rgba(0,0,0,.10);
+}
+.btn-start-here:hover{
+  color:#FFFFFF;
+  background:rgba(31,166,168,.32);
+  border-color:var(--teal-light);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.04),
+    0 8px 18px rgba(0,0,0,.14);
+}
+.btn-start-here:active{
+  background:rgba(31,166,168,.36);
+  transform:translateY(1px);
+}
+
+
+/* Special homepage Start Here link */
+.home-start-here-link{
+  text-align:center;
+  margin:28px auto 0;
+}
+.home-start-here-link a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#FFFFFF !important;
+  background:rgba(31,166,168,.18);
+  border:1px solid rgba(101,216,211,.42);
+  border-radius:999px;
+  padding:11px 18px;
+  font-weight:850;
+  font-size:14px;
+  transition:
+    background .18s ease,
+    border-color .18s ease,
+    transform .18s ease,
+    box-shadow .18s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+@media (hover:hover) and (pointer:fine){
+  .home-start-here-link a:hover{
+    color:#FFFFFF !important;
+    background:rgba(31,166,168,.28);
+    border-color:rgba(101,216,211,.68);
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
+    transform:translateY(-1px);
+  }
+}
+.home-start-here-link a:active{
+  background:rgba(31,166,168,.32);
+  transform:scale(.985);
+}
+
+
+/* CONSISTENT ONE-LINE DESKTOP NAVIGATION */
+@media (min-width:1101px){
+  header .shell,
+  .site-header .shell,
+  .nav-wrap,
+  .header-inner{
+    gap:14px !important;
+  }
+
+  .nav-main,
+  nav.nav-main,
+  header nav{
+    gap:4px !important;
+    flex-wrap:nowrap !important;
+    white-space:nowrap !important;
+  }
+
+  .nav-main a,
+  .nav-main button,
+  header nav a,
+  header nav button{
+    white-space:nowrap !important;
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+    padding-left:10px !important;
+    padding-right:10px !important;
+    font-size:13px !important;
+  }
+
+  .brand,
+  .brand-wrap,
+  .logo-wrap{
+    flex-shrink:0 !important;
+  }
+
+  .nav-cta,
+  .connect-btn,
+  a[href="./connect.html"]{
+    flex-shrink:0 !important;
+  }
+}
+
+/* Collapse before desktop links are forced to wrap */
+@media (max-width:1100px){
+  .menu-toggle{
+    display:block !important;
+  }
+
+  .nav-main{
+    display:none !important;
+  }
+
+  .nav-main.open{
+    display:flex !important;
+  }
+}
+
+
+
+/* Disclosure page */
+.disclosure-hero{
+  color:white;
+  padding:64px 0 54px;
+  background:
+    radial-gradient(circle at 88% 10%,rgba(101,216,211,.14),transparent 30%),
+    linear-gradient(145deg,var(--navy-dark),var(--navy) 58%,var(--navy-mid));
+}
+.disclosure-hero h1{max-width:850px;margin-bottom:14px}
+.disclosure-hero .lead{max-width:820px}
+.disclosure-wrap{max-width:900px;margin:auto}
+.disclosure-card{
+  background:white;border:1px solid var(--border);border-radius:22px;
+  box-shadow:var(--shadow);padding:38px;
+}
+.disclosure-section + .disclosure-section{
+  border-top:1px solid var(--border);
+  margin-top:30px;padding-top:30px;
+}
+.disclosure-section h2{
+  font-size:28px;color:var(--navy);margin-bottom:14px;
+}
+.disclosure-section p{color:var(--soft);margin:0 0 14px}
+.disclosure-section .bullet-list{margin:14px 0 18px}
+.disclosure-section .bullet-list li{align-items:flex-start}
+@media(max-width:700px){
+  .disclosure-hero{padding:54px 0 44px}
+  .disclosure-card{padding:24px}
+  .disclosure-section h2{font-size:24px}
+}
+
+  </style>
+</head>
+<body data-page="Disclosure">
+
+<header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./ns-logo.PNG" alt="NextStep Senior Living">
+      <div>
+        <div class="brand-name">NextStep Senior Living</div>
+        <div class="brand-sub">Peoria • Central Illinois</div>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+
+    <div class="nav-main" id="navMain">
+      <a href="./index.html">Home</a>
+      <a href="./start-here.html">Start Here</a>
+      <a href="./how-it-works.html">How It Works</a>
+
+      <details class="nav-dropdown">
+        <summary>Living Options</summary>
+        <div class="dropdown-menu">
+          <a href="./independent-living.html">Independent Living</a>
+          <a href="./assisted-living.html">Assisted Living</a>
+          <a href="./memory-care.html">Memory Care</a>
+        </div>
+      </details>
+
+      <a href="./resources.html">Resources</a>
+      <a href="./professionals.html">For Professionals</a>
+      <a href="./about.html">About</a>
+      <a class="nav-connect" href="./connect.html">Connect</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="disclosure-hero">
+    <div class="shell">
+      <div class="eyebrow"><span class="dot"></span>Transparency</div>
+      <h1>Service & Compensation Disclosure</h1>
+      <p class="lead">Information about NextStep Senior Living's services, compensation, community relationships, and the choices available to families.</p>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="shell disclosure-wrap">
+      <div class="disclosure-card">
+        <section class="disclosure-section">
+      <h2>Our Services</h2>
+      NextStep Senior Living, LLC ("NextStep") assists seniors and their families in exploring senior living options, including Independent Living, Assisted Living, and Memory Care.
+
+Our role may include helping families:
+<ul class="bullet-list">
+  <li>Understand different senior living options and levels of support.</li>
+  <li>Identify communities based on needs, preferences, location, and budget.</li>
+  <li>Obtain information about communities, services, amenities, pricing, and availability.</li>
+  <li>Coordinate introductions, tours, and communication with communities.</li>
+  <li>Navigate the senior living search and selection process.</li>
+</ul>
+
+<p>NextStep does not provide medical, nursing, legal, financial, or other professional healthcare services. Senior living communities are independently responsible for determining whether they can appropriately meet a prospective resident's needs.</p>
+    </section>
+<section class="disclosure-section">
+      <h2>No Cost to Families</h2>
+      <p>Families do not pay NextStep for our senior living placement and advisory services.</p>
+<p>NextStep is compensated by certain participating senior living communities when an individual referred by NextStep chooses and moves into that community.</p>
+    </section>
+<section class="disclosure-section">
+      <h2>How NextStep Is Compensated</h2>
+      <p>If a family selects and moves into a participating senior living community, that community may pay NextStep a referral or placement fee pursuant to a separate agreement between NextStep and the community.</p>
+<p>The family is not responsible for paying this referral fee to NextStep.</p>
+<p>NextStep's compensation may vary among participating communities.</p>
+    </section>
+<section class="disclosure-section">
+      <h2>Participating and Non-Participating Communities</h2>
+      <p>NextStep does not have compensation agreements with every senior living community.</p>
+<p>Some communities presented or discussed may compensate NextStep if a resident moves in, while other communities may not have a financial relationship with NextStep.</p>
+<p>The existence or amount of a referral fee does not obligate a family to select a particular community.</p>
+    </section>
+<section class="disclosure-section">
+      <h2>Your Choice Comes First</h2>
+      <p>The final decision regarding where to live always belongs to the prospective resident and/or their authorized representative.</p>
+<p>NextStep may provide information and recommendations based on factors such as:</p>
+<ul class="bullet-list">
+  <li>Care and support needs</li>
+  <li>Budget</li>
+  <li>Geographic preferences</li>
+  <li>Lifestyle and personal preferences</li>
+  <li>Desired services and amenities</li>
+  <li>Availability</li>
+  <li>Information provided by the prospective resident or representative</li>
+</ul>
+<p>Families are encouraged to independently evaluate communities, ask questions, review residency agreements and pricing, tour communities when possible, and determine which option is appropriate.</p>
+<p>NextStep does not guarantee the quality, suitability, availability, licensing status, performance, or services of any senior living community.</p>
+    </section>
+<section class="disclosure-section">
+      <h2>Healthcare Services</h2>
+      <p>NextStep's senior living placement services are separate from the selection of physicians, hospice providers, home health agencies, pharmacies, therapy providers, durable medical equipment suppliers, and other healthcare providers.</p>
+<p>NextStep does not require a family to select any particular healthcare provider as a condition of receiving senior living advisory services.</p>
+    </section>
+<section class="disclosure-section">
+      <h2>Broker Services</h2>
+      <p>NextStep does not broker, lease, or sublease apartments directly and is not a party to any transaction between landlords (including, as applicable, property management companies and/or property managers) and renters.</p>
+<p>As a result, NextStep does not (a) guarantee or ensure any apartment or any transaction between a renter and landlord, (b) collect or process payments or execute any lease or sublease documentation on behalf of renters or landlords, or (c) broker, lease, or sublease or offer to broker, lease or sublease, or own any apartments.</p>
+    </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell footer-grid">
+    <div>
+      <div class="footer-brand">NextStep Senior Living, LLC</div>
+      <div class="footer-note">
+        Families are not charged for NextStep's senior living placement assistance. NextStep may receive compensation from participating senior living communities when a referred individual moves into a community. Recommendations and placement decisions remain your choice.
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="./privacy.html">Privacy Policy</a>
+      <a href="./disclosure.html">Disclosure</a>
+      <a href="./resources.html">Resources for Loved Ones</a>
+      <a href="./professionals.html">For Professionals</a>
+      <a href="./connect.html">Digital Business Card</a>
+    </div>
+    <div class="copyright">© 2026 NextStep Senior Living, LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const menuBtn=document.getElementById("menuToggle");
+  const nav=document.getElementById("navMain");
+  if(menuBtn&&nav){
+    menuBtn.addEventListener("click",()=>{
+      const open=nav.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded",String(open));
+      document.body.classList.toggle("menu-open",open);
+    });
+    nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+      nav.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      menuBtn.setAttribute("aria-expanded","false");
+    }));
+  }
+
+  document.addEventListener("click",(e)=>{
+    document.querySelectorAll(".nav-dropdown[open]").forEach(d=>{
+      if(!d.contains(e.target)) d.removeAttribute("open");
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
